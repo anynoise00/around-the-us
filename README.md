@@ -1,16 +1,10 @@
-# Projeto 4:  EUA Afora
+# EUA Afora
 
-### Visão geral
+Uma página iterativa onde os usuários poderão adicionar, remover ou curtir fotos.
 
-* Figma
-* Imagens
+Este projeto será criado para praticar mais sobre responsividade, e front-end no geral, e também para aplicar o que aprendi sobre manipulação do DOM com JavaScript.
 
-**Figma**
-
-* [Link para o projeto no Figma](https://www.figma.com/file/XfB6BSINvliub43JgKza1e/WEB.-Sprint-4.-Around-The-U.S.-desktop-%2B-mobile-pt)
-
-**Imagens**
-
-A maneira como você fará isso no trabalho é exportando imagens diretamente do Figma — recomendamos fazer isso para praticar mais. Não se esqueça de otimizá-los [aqui](https://tinypng.com/), para que seu projeto carregue mais rápido.
-
-Divirta-se com JavaScript!
+## Objetivos
+* Versão da página para telas grandes
+* Versão para telas menores
+* Forma de editar o perfil do usuário
