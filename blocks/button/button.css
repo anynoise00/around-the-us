@@ -1,4 +1,4 @@
-.profile__button {
+.button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,6 +8,6 @@
   cursor: pointer;
 }
 
-.profile__button:hover {
+.button:hover {
   opacity: .6;
 }
