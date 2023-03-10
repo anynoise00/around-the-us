@@ -1,0 +1,10 @@
+.profile__button-edit {
+  position: relative;
+  top: 17px;
+  grid-area: button;
+  width: 24px;
+  height: 24px;
+  background-image: url("../../../images/icon_edit.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
