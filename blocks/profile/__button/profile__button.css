@@ -1,0 +1,13 @@
+.profile__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #fff;
+  background-color: transparent;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.profile__button:hover {
+  opacity: .6;
+}

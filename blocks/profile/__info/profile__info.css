@@ -1,0 +1,9 @@
+.profile__info {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas: 
+    "name button"
+    "description description";
+  padding-left: 30px;
+}
