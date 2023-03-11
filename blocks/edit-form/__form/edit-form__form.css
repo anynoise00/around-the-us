@@ -1,0 +1,12 @@
+.edit-form__form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 430px;
+  height: 330px;
+  z-index: 5;
+  background-color: #fff;
+  padding: 34px 36px 36px;
+  box-sizing: border-box;
+  border-radius: 10px;
+}

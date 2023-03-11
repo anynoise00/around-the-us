@@ -1,0 +1,10 @@
+.edit-form__button-close {
+  position: absolute;
+  border: 0;
+  right: -40px;
+  top: -40px;
+  width: 36px;
+  height: 36px;
+  background-image: url("../../../images/icon_close.svg");
+  background-size: contain;
+}
