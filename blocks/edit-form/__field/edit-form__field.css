@@ -9,3 +9,11 @@
 .edit-form__field:focus {
   outline: none;
 }
+
+.edit-form__field:-webkit-autofill,
+.edit-form__field:-webkit-autofill:hover,
+.edit-form__field:-webkit-autofill:focus,
+.edit-form__field:-webkit-autofill:active {
+  -webkit-transition: background-color 9999s ease-in-out 0s;
+  transition: background-color 9999s ease-in-out 0s;
+}
