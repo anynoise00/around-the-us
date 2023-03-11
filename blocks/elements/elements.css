@@ -6,3 +6,13 @@
   list-style: none;
   padding-top: 50px;
 }
+
+@media screen and (max-width: 960px) {
+  .elements {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    padding-top: 36px;
+    -moz-column-gap: 0;
+         column-gap: 0;
+  }
+}
