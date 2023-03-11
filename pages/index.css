@@ -36,3 +36,4 @@
 @import url("../blocks/edit-form/__overlay/edit-form__overlay.css");
 @import url("../blocks/edit-form/__button-submit/edit-form__button-submit.css");
 @import url("../blocks/edit-form/__button-close/edit-form__button-close.css");
+@import url("../blocks/edit-form/_visible/edit-form_visible.css");
