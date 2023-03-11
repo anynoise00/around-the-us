@@ -7,4 +7,5 @@
   height: 36px;
   background-image: url("../../../images/icon_close.svg");
   background-size: contain;
+  -webkit-tap-highlight-color: transparent;
 }
