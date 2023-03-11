@@ -12,17 +12,14 @@ editProfileBtn.addEventListener("click", openEditForm);
 closeFormBtn.addEventListener("click", closeEditForm);
 editForm.addEventListener("submit", handleEditFormSubmit);
 
-function openEditForm(ev) {
-  ev.preventDefault();
-
+function openEditForm() {
   editForm.classList.add("edit-form_visible");
 
   editFormInputName.value = profileName.textContent;
   editFormInputDesc.value = profileDesc.textContent;
 }
 
-function closeEditForm(ev) {
-  ev.preventDefault();
+function closeEditForm() {
   editForm.classList.remove("edit-form_visible");
 }
 
@@ -43,6 +40,5 @@ elementLikeButtons.forEach((el) => {
 });
 
 function toggleLikeButton(ev) {
-  ev.preventDefault();
   ev.target.classList.toggle("element__like_active");
 }
