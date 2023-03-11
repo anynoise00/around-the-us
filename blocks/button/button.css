@@ -6,6 +6,7 @@
   background-color: transparent;
   box-sizing: border-box;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .button:hover {
