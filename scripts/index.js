@@ -35,3 +35,15 @@ function submitForm(ev) {
 
   closeEditForm(ev);
 }
+
+const elementLikeButtons = document.querySelectorAll(".element__like");
+console.dir(elementLikeButtons);
+
+elementLikeButtons.forEach((el) => {
+  el.addEventListener("click", toggleLikeButton);
+});
+
+function toggleLikeButton(ev) {
+  ev.preventDefault();
+  ev.target.classList.toggle("element__like_active");
+}
