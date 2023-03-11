@@ -10,3 +10,12 @@
   box-sizing: border-box;
   border-radius: 10px;
 }
+
+@media screen and (max-width: 960px) {
+  .edit-form__form {
+    justify-content: space-between;
+    width: 282px;
+    height: 332px;
+    padding: 25px 22px;
+  }
+}

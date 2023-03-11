@@ -9,3 +9,12 @@
   background-size: contain;
   -webkit-tap-highlight-color: transparent;
 }
+
+@media screen and (max-width: 960px) {
+  .edit-form__button-close {
+    width: 20px;
+    height: 20px;
+    right: 0;
+    top: -39px;
+  }
+}

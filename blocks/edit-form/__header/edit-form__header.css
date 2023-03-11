@@ -5,3 +5,10 @@
   color: #000;
   padding-bottom: 54px;
 }
+
+@media screen and (max-width: 960px) {
+  .edit-form__header {
+    font-size: 18px;
+    padding-bottom: 76px;
+  }
+}
