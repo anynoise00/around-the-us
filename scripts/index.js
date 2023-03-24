@@ -1,15 +1,15 @@
 const editProfileForm = document.querySelector(".form_type_edit-profile");
 const editProfileFormInputName = editProfileForm.querySelector(".form__field[name='name']");
 const editProfileFormInputDesc = editProfileForm.querySelector(".form__field[name='description']");
-const editProfileFormCloseBtn = editProfileForm.querySelector(".form__button-close");
+const buttonCloseEditProfileForm = editProfileForm.querySelector(".form__button-close");
 
 const profile = document.querySelector(".profile");
 const profileName = profile.querySelector(".profile__name");
 const profileDesc = profile.querySelector(".profile__description");
-const editProfileBtn = profile.querySelector(".profile__button-edit");
+const buttonEditProfile = profile.querySelector(".profile__button-edit");
 
-editProfileBtn.addEventListener("click", openEditProfileForm);
-editProfileFormCloseBtn.addEventListener("click", closeEditProfileForm);
+buttonEditProfile.addEventListener("click", openEditProfileForm);
+buttonCloseEditProfileForm.addEventListener("click", closeEditProfileForm);
 editProfileForm.addEventListener("submit", handleEditProfileFormSubmit);
 
 function openEditProfileForm() {
@@ -75,20 +75,20 @@ function addCard(title, link) {
   const cardImage = cardElement.querySelector(".card__image");
   cardImage.src = link;
 
-  const likeButton = cardElement.querySelector(".card__like-btn");
-  likeButton.addEventListener("click", toggleLikeButton);
+  const buttonLike = cardElement.querySelector(".card__button-like");
+  buttonLike.addEventListener("click", toggleLikeButton);
 
-  const deleteButton = cardElement.querySelector(".card__delete-btn");
-  deleteButton.addEventListener("click", deleteCard);
+  const buttonDelete = cardElement.querySelector(".card__button-delete");
+  buttonDelete.addEventListener("click", deleteCard);
 
-  const openImageButton = cardElement.querySelector(".card__btn-open-image");
-  openImageButton.addEventListener("click", openImage);
+  const buttonViewImage = cardElement.querySelector(".card__button-view-image");
+  buttonViewImage.addEventListener("click", openImagePopup);
 
   cardsContainer.append(cardElement);
 }
 
 function toggleLikeButton(ev) {
-  ev.target.classList.toggle("card__like-btn_active");
+  ev.target.classList.toggle("card__button-like_active");
 }
 
 function deleteCard(ev) {
@@ -98,10 +98,10 @@ function deleteCard(ev) {
 const imagePopup = document.querySelector(".image-popup");
 const imagePopupTitle = imagePopup.querySelector(".image-popup__title");
 const imagePopupImage = imagePopup.querySelector(".image-popup__image");
-const imagePopupButtonClose = imagePopup.querySelector(".image-popup__btn-close");
-imagePopupButtonClose.addEventListener("click", closeImage);
+const imagePopupButtonClose = imagePopup.querySelector(".image-popup__button-close");
+imagePopupButtonClose.addEventListener("click", closeImagePopup);
 
-function openImage(ev) {
+function openImagePopup(ev) {
   const cardElement = ev.target.closest(".card");
   
   const cardTitle = cardElement.querySelector(".card__title");
@@ -113,19 +113,19 @@ function openImage(ev) {
   imagePopup.classList.add("image-popup_visible");
 }
 
-function closeImage() {
+function closeImagePopup() {
   imagePopup.classList.remove("image-popup_visible");
 }
 
 const addImageForm = document.querySelector(".form_type_add-image");
 const addImageFormInputTitle = addImageForm.querySelector(".form__field[name='title']");
 const addImageFormInputLink = addImageForm.querySelector(".form__field[name='link']");
-const addImageFormCloseBtn = addImageForm.querySelector(".form__button-close");
+const buttonCloseAddImageForm = addImageForm.querySelector(".form__button-close");
 
-const addImageBtn = profile.querySelector(".profile__button-add");
+const buttonAddImage = profile.querySelector(".profile__button-add");
 
-addImageBtn.addEventListener("click", openAddImageForm);
-addImageFormCloseBtn.addEventListener("click", closeAddImageForm);
+buttonAddImage.addEventListener("click", openAddImageForm);
+buttonCloseAddImageForm.addEventListener("click", closeAddImageForm);
 addImageForm.addEventListener("submit", handleAddImageFormSubmit);
 
 function openAddImageForm() {
