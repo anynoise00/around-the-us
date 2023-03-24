@@ -81,6 +81,9 @@ function addCard(title, link) {
   const deleteButton = cardElement.querySelector(".card__delete-btn");
   deleteButton.addEventListener("click", deleteCard);
 
+  const openImageButton = cardElement.querySelector(".card__btn-open-image");
+  openImageButton.addEventListener("click", openImage);
+
   cardsContainer.append(cardElement);
 }
 
@@ -90,6 +93,28 @@ function toggleLikeButton(ev) {
 
 function deleteCard(ev) {
   ev.target.parentElement.remove();
+}
+
+const imagePopup = document.querySelector(".image-popup");
+const imagePopupTitle = imagePopup.querySelector(".image-popup__title");
+const imagePopupImage = imagePopup.querySelector(".image-popup__image");
+const imagePopupButtonClose = imagePopup.querySelector(".image-popup__btn-close");
+imagePopupButtonClose.addEventListener("click", closeImage);
+
+function openImage(ev) {
+  const cardElement = ev.target.closest(".card");
+  
+  const cardTitle = cardElement.querySelector(".card__title");
+  imagePopupTitle.textContent = cardTitle.textContent;
+  
+  const cardImage = cardElement.querySelector(".card__image");
+  imagePopupImage.src = cardImage.src;
+
+  imagePopup.classList.add("image-popup_visible");
+}
+
+function closeImage() {
+  imagePopup.classList.remove("image-popup_visible");
 }
 
 const addImageForm = document.querySelector(".form_type_add-image");
