@@ -1,45 +1,35 @@
-const editForm = document.querySelector(".edit-form");
-const editFormInputName = editForm.querySelector(".edit-form__field[name='name']");
-const editFormInputDesc = editForm.querySelector(".edit-form__field[name='description']");
-const closeFormBtn = editForm.querySelector(".edit-form__button-close");
+const editProfileForm = document.querySelector(".form_type_edit-profile");
+const editProfileFormInputName = editProfileForm.querySelector(".form__field[name='name']");
+const editProfileFormInputDesc = editProfileForm.querySelector(".form__field[name='description']");
+const editProfileFormCloseBtn = editProfileForm.querySelector(".form__button-close");
 
 const profile = document.querySelector(".profile");
 const profileName = profile.querySelector(".profile__name");
 const profileDesc = profile.querySelector(".profile__description");
 const editProfileBtn = profile.querySelector(".profile__button-edit");
 
-editProfileBtn.addEventListener("click", openEditForm);
-closeFormBtn.addEventListener("click", closeEditForm);
-editForm.addEventListener("submit", handleEditFormSubmit);
+editProfileBtn.addEventListener("click", openEditProfileForm);
+editProfileFormCloseBtn.addEventListener("click", closeEditProfileForm);
+editProfileForm.addEventListener("submit", handleEditProfileFormSubmit);
 
-function openEditForm() {
-  editForm.classList.add("edit-form_visible");
+function openEditProfileForm() {
+  editProfileForm.classList.add("form_visible");
 
-  editFormInputName.value = profileName.textContent;
-  editFormInputDesc.value = profileDesc.textContent;
+  editProfileFormInputName.value = profileName.textContent;
+  editProfileFormInputDesc.value = profileDesc.textContent;
 }
 
-function closeEditForm() {
-  editForm.classList.remove("edit-form_visible");
+function closeEditProfileForm() {
+  editProfileForm.classList.remove("form_visible");
 }
 
-function handleEditFormSubmit(ev) {
+function handleEditProfileFormSubmit(ev) {
   ev.preventDefault();
 
-  profileName.textContent = editFormInputName.value;
-  profileDesc.textContent = editFormInputDesc.value;
+  profileName.textContent = editProfileFormInputName.value;
+  profileDesc.textContent = editProfileFormInputDesc.value;
 
-  closeEditForm(ev);
-}
-
-const cardLikeButtons = document.querySelectorAll(".card__like");
-
-cardLikeButtons.forEach((el) => {
-  el.addEventListener("click", toggleLikeButton);
-});
-
-function toggleLikeButton(ev) {
-  ev.target.classList.toggle("card__like_active");
+  closeEditProfileForm(ev);
 }
 
 const initialCards = [
@@ -73,12 +63,57 @@ const cardsContainer = document.querySelector(".cards");
 const cardTemplate = document.querySelector("#card-template").content;
 
 initialCards.forEach((elem) => {
-  const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
-  const cardImage = cardElement.querySelector(".card__image");
-  cardImage.src = elem.link;
+  addCard(elem.title, elem.link)
+});
 
+function addCard(title, link) {
+  const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
+  
   const cardTitle = cardElement.querySelector(".card__title");
-  cardTitle.textContent = elem.name;
+  cardTitle.textContent = title;
+  
+  const cardImage = cardElement.querySelector(".card__image");
+  cardImage.src = link;
+
+  const likeButton = cardElement.querySelector(".card__like");
+  likeButton.addEventListener("click", toggleLikeButton);
 
   cardsContainer.append(cardElement);
-});
+}
+
+function toggleLikeButton(ev) {
+  ev.target.classList.toggle("card__like_active");
+}
+
+const addImageForm = document.querySelector(".form_type_add-image");
+const addImageFormInputTitle = addImageForm.querySelector(".form__field[name='title']");
+const addImageFormInputLink = addImageForm.querySelector(".form__field[name='link']");
+const addImageFormCloseBtn = addImageForm.querySelector(".form__button-close");
+
+const addImageBtn = profile.querySelector(".profile__button-add");
+
+addImageBtn.addEventListener("click", openAddImageForm);
+addImageFormCloseBtn.addEventListener("click", closeAddImageForm);
+addImageForm.addEventListener("submit", handleAddImageFormSubmit);
+
+function openAddImageForm() {
+  addImageFormInputTitle.value = "";
+  addImageFormInputLink.value = "";
+
+  addImageForm.classList.add("form_visible");
+}
+
+function closeAddImageForm() {
+  addImageForm.classList.remove("form_visible");
+}
+
+function handleAddImageFormSubmit(ev) {
+  ev.preventDefault();
+
+  const title = addImageFormInputTitle.value;
+  const link = addImageFormInputLink.value;
+
+  addCard(title, link);
+
+  closeAddImageForm(ev);
+}
