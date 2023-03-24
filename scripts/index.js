@@ -78,11 +78,18 @@ function addCard(title, link) {
   const likeButton = cardElement.querySelector(".card__like");
   likeButton.addEventListener("click", toggleLikeButton);
 
+  const deleteButton = cardElement.querySelector(".card__delete-btn");
+  deleteButton.addEventListener("click", deleteCard);
+
   cardsContainer.append(cardElement);
 }
 
 function toggleLikeButton(ev) {
   ev.target.classList.toggle("card__like_active");
+}
+
+function deleteCard(ev) {
+  ev.target.parentElement.remove();
 }
 
 const addImageForm = document.querySelector(".form_type_add-image");
