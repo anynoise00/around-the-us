@@ -63,7 +63,7 @@ const cardsContainer = document.querySelector(".cards");
 const cardTemplate = document.querySelector("#card-template").content;
 
 initialCards.forEach((elem) => {
-  addCard(elem.title, elem.link)
+  addCard(elem.name, elem.link)
 });
 
 function addCard(title, link) {
