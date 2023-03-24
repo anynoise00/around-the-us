@@ -23,56 +23,61 @@
         <button type="button" class="button profile__button-add"></button>
       </section>
 
-      <ul class="elements">
-        <li class="element">
-          <img src="images/element_vale-de-yosemite.png" alt="Um rio passando num vale cercado por árvores" class="element__image">
-          <h2 class="element__title">Vale de Yosemite</h2>
-          <button type="button" class="button element__like"></button>
-        </li>
-        <li class="element">
-          <img src="images/element_lago-louise.png" alt="Um belo lago com um vale ao fundo" class="element__image">
-          <h2 class="element__title">Lago Louise</h2>
-          <button type="button" class="button element__like"></button>
-        </li>
-        <li class="element">
-          <img src="images/element_montanhas-carennes.png" alt="Pôr do sol por trás de montanhas" class="element__image">
-          <h2 class="element__title">Montanhas Carennes</h2>
-          <button type="button" class="button element__like"></button>
-        </li>
-        <li class="element">
-          <img src="images/element_latemar.png" alt="Várias montanhas cercadas pelo céu noturno" class="element__image">
-          <h2 class="element__title">Latemar</h2>
-          <button type="button" class="button element__like"></button>
-        </li>
-        <li class="element">
-          <img src="images/element_vanoise-national-park.png" alt="Um lago cercado por montanhas" class="element__image">
-          <h2 class="element__title">Vanoise National Park</h2>
-          <button type="button" class="button element__like"></button>
-        </li>
-        <li class="element">
-          <img src="images/element_lago-de-braies.png" alt="Um barco no lago, com várias montanhas ao fundo" class="element__image">
-          <h2 class="element__title">Lago de Braies</h2>
-          <button type="button" class="button element__like"></button>
-        </li>
+      <ul class="cards">
+
       </ul>
     </main>
 
-    <div class="edit-form">
-      <form class="edit-form__form">
-        <button type="button" class="button edit-form__button-close"></button>
-        <h2 class="edit-form__header">Editar perfil</h2>
-        <input type="text" name="name" class="edit-form__field" value="Jacques Cousteau" placeholder="Seu nome">
-        <hr class="edit-form__line">
-        <input type="text" name="description" class="edit-form__field" value="Explorer" placeholder="Uma breve descrição sobre você">
-        <hr class="edit-form__line">
-        <button type="submit" class="edit-form__button-submit">Salvar</button>
+    <div class="popup">
+      <form class="form form_type_edit-profile">
+        <button type="button" class="button form__button-close"></button>
+        <h2 class="form__header">Editar perfil</h2>
+        <input type="text" name="name" class="form__field" value="Jacques Cousteau" placeholder="Seu nome">
+        <hr class="form__line">
+        <input type="text" name="description" class="form__field" value="Explorer" placeholder="Uma breve descrição sobre você">
+        <hr class="form__line">
+        <button type="submit" class="form__button-submit">Salvar</button>
       </form>
-      <div class="edit-form__overlay"></div>
+      <div class="popup__overlay"></div>
+    </div>
+
+    <div class="popup">
+      <form class="form form_type_add-image">
+        <button type="button" class="button form__button-close"></button>
+        <h2 class="form__header">Novo local</h2>
+        <input type="text" name="title" class="form__field" placeholder="Título">
+        <hr class="form__line">
+        <input type="text" name="link" class="form__field" placeholder="Link da imagem">
+        <hr class="form__line">
+        <button type="submit" class="form__button-submit">Criar</button>
+      </form>
+      <div class="popup__overlay"></div>
+    </div>
+
+    <div class="popup">
+      <div class="image-popup">
+        <button type="button" class="button image-popup__button-close"></button>
+        <img src="" alt="" class="image-popup__image">
+        <h2 class="image-popup__title">Imagem Qualquer</h2>
+      </div>
+
+      <div class="popup__overlay"></div>
     </div>
 
     <footer class="footer">
       <h2 class="footer__text">&copy; 2023 Vinícius Eduardo</h2>
     </footer>
+
+    <template id="card-template">
+      <li class="card">
+        <button type="button" class="card__button-view-image">
+          <img src="" alt="" class="card__image">
+        </button>
+        <h2 class="card__title"></h2>
+        <button type="button" class="button card__button-like"></button>
+        <button type="button" class="button card__button-delete"></button>
+      </li>
+    </template>
 
     <script src="scripts/index.js"></script>
   </body>

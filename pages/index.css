@@ -18,23 +18,31 @@
 
 @import url("../blocks/button/button.css");
 
-@import url("../blocks/elements/elements.css");
+@import url("../blocks/cards/cards.css");
 
-@import url("../blocks/element/element.css");
-@import url("../blocks/element/__image/element__image.css");
-@import url("../blocks/element/__title/element__title.css");
-@import url("../blocks/element/__like/element__like.css");
-@import url("../blocks/element/__like/_active/element__like_active.css");
+@import url("../blocks/card/card.css");
+@import url("../blocks/card/__image/card__image.css");
+@import url("../blocks/card/__title/card__title.css");
+@import url("../blocks/card/__button-like/card__button-like.css");
+@import url("../blocks/card/__button-like/_active/card__button-like_active.css");
+@import url("../blocks/card/__button-delete/card__button-delete.css");
+@import url("../blocks/card/__button-view-image/card__button-view-image.css");
 
 @import url("../blocks/footer/footer.css");
 @import url("../blocks/footer/__text/footer__text.css");
 
-@import url("../blocks/edit-form/edit-form.css");
-@import url("../blocks/edit-form/__form/edit-form__form.css");
-@import url("../blocks/edit-form/__header/edit-form__header.css");
-@import url("../blocks/edit-form/__field/edit-form__field.css");
-@import url("../blocks/edit-form/__line/edit-form__line.css");
-@import url("../blocks/edit-form/__overlay/edit-form__overlay.css");
-@import url("../blocks/edit-form/__button-submit/edit-form__button-submit.css");
-@import url("../blocks/edit-form/__button-close/edit-form__button-close.css");
-@import url("../blocks/edit-form/_visible/edit-form_visible.css");
+@import url("../blocks/popup/popup.css");
+@import url("../blocks/popup/__overlay/popup__overlay.css");
+@import url("../blocks/popup/_visible/popup_visible.css");
+
+@import url("../blocks/form/form.css");
+@import url("../blocks/form/__header/form__header.css");
+@import url("../blocks/form/__field/form__field.css");
+@import url("../blocks/form/__line/form__line.css");
+@import url("../blocks/form/__button-submit/form__button-submit.css");
+@import url("../blocks/form/__button-close/form__button-close.css");
+
+@import url("../blocks/image-popup/image-popup.css");
+@import url("../blocks/image-popup/__button-close/image-popup__button-close.css");
+@import url("../blocks/image-popup/__title/image-popup__title.css");
+@import url("../blocks/image-popup/__image/image-popup__image.css");

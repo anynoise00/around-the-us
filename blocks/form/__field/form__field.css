@@ -1,0 +1,19 @@
+.form__field {
+  border: 0;
+  max-height: 14px;
+  padding-bottom: 13px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.form__field:focus {
+  outline: none;
+}
+
+.form__field:-webkit-autofill,
+.form__field:-webkit-autofill:hover,
+.form__field:-webkit-autofill:focus,
+.form__field:-webkit-autofill:active {
+  -webkit-transition: background-color 9999s ease-in-out 0s;
+  transition: background-color 9999s ease-in-out 0s;
+}
