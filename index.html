@@ -28,17 +28,30 @@
       </ul>
     </main>
 
-    <div class="edit-form">
-      <form class="edit-form__form">
-        <button type="button" class="button edit-form__button-close"></button>
-        <h2 class="edit-form__header">Editar perfil</h2>
-        <input type="text" name="name" class="edit-form__field" value="Jacques Cousteau" placeholder="Seu nome">
-        <hr class="edit-form__line">
-        <input type="text" name="description" class="edit-form__field" value="Explorer" placeholder="Uma breve descrição sobre você">
-        <hr class="edit-form__line">
-        <button type="submit" class="edit-form__button-submit">Salvar</button>
+    <div class="form form_type_edit-profile">
+      <form class="form__form">
+        <button type="button" class="button form__button-close"></button>
+        <h2 class="form__header">Editar perfil</h2>
+        <input type="text" name="name" class="form__field" value="Jacques Cousteau" placeholder="Seu nome">
+        <hr class="form__line">
+        <input type="text" name="description" class="form__field" value="Explorer" placeholder="Uma breve descrição sobre você">
+        <hr class="form__line">
+        <button type="submit" class="form__button-submit">Salvar</button>
       </form>
-      <div class="edit-form__overlay"></div>
+      <div class="form__overlay"></div>
+    </div>
+
+    <div class="form form_type_add-image">
+      <form class="form__form">
+        <button type="button" class="button form__button-close"></button>
+        <h2 class="form__header">Novo local</h2>
+        <input type="text" name="title" class="form__field" placeholder="Título">
+        <hr class="form__line">
+        <input type="text" name="link" class="form__field" placeholder="Link da imagem">
+        <hr class="form__line">
+        <button type="submit" class="form__button-submit">Criar</button>
+      </form>
+      <div class="form__overlay"></div>
     </div>
 
     <footer class="footer">
