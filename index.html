@@ -28,8 +28,8 @@
       </ul>
     </main>
 
-    <div class="form form_type_edit-profile">
-      <form class="form__form">
+    <div class="popup">
+      <form class="form form_type_edit-profile">
         <button type="button" class="button form__button-close"></button>
         <h2 class="form__header">Editar perfil</h2>
         <input type="text" name="name" class="form__field" value="Jacques Cousteau" placeholder="Seu nome">
@@ -38,11 +38,11 @@
         <hr class="form__line">
         <button type="submit" class="form__button-submit">Salvar</button>
       </form>
-      <div class="form__overlay"></div>
+      <div class="popup__overlay"></div>
     </div>
 
-    <div class="form form_type_add-image">
-      <form class="form__form">
+    <div class="popup">
+      <form class="form form_type_add-image">
         <button type="button" class="button form__button-close"></button>
         <h2 class="form__header">Novo local</h2>
         <input type="text" name="title" class="form__field" placeholder="Título">
@@ -51,16 +51,17 @@
         <hr class="form__line">
         <button type="submit" class="form__button-submit">Criar</button>
       </form>
-      <div class="form__overlay"></div>
+      <div class="popup__overlay"></div>
     </div>
 
-    <div class="image-popup">
-      <div class="image-popup__container">
+    <div class="popup">
+      <div class="image-popup">
         <button type="button" class="button image-popup__button-close"></button>
         <img src="" alt="" class="image-popup__image">
         <h2 class="image-popup__title">Imagem Qualquer</h2>
       </div>
-      <div class="image-popup__overlay"></div>
+
+      <div class="popup__overlay"></div>
     </div>
 
     <footer class="footer">
