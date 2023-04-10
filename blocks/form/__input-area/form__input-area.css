@@ -1,0 +1,15 @@
+.form__input-area {
+  position: relative;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.form__input-area:last-of-type {
+  margin-bottom: 48px;
+}
+
+@media screen and (max-width: 960px) {
+  .form__input-area:last-of-type {
+    margin-bottom: 46px;
+  }
+}

@@ -29,26 +29,34 @@
     </main>
 
     <div class="popup">
-      <form class="form form_type_edit-profile">
+      <form class="form form_type_edit-profile" novalidate>
         <button type="button" class="button form__button-close"></button>
         <h2 class="form__header">Editar perfil</h2>
-        <input type="text" name="name" class="form__field" value="Jacques Cousteau" placeholder="Seu nome">
-        <hr class="form__line">
-        <input type="text" name="description" class="form__field" value="Explorer" placeholder="Uma breve descrição sobre você">
-        <hr class="form__line">
+        <div class="form__input-area">
+          <input type="text" name="name" id="profile-name-input" class="form__field form__field_type_error" value="Jacques Cousteau" placeholder="Seu nome" required>
+          <span class="form__input-error profile-name-input-error">teste</span>
+        </div>
+        <div class="form__input-area">
+          <input type="text" name="description" id="profile-description-input" class="form__field" value="Explorer" placeholder="Uma breve descrição sobre você" required>
+          <span class="form__input-error profile-description-input-error"></span>
+        </div>
         <button type="submit" class="form__button-submit">Salvar</button>
       </form>
       <div class="popup__overlay"></div>
     </div>
 
     <div class="popup">
-      <form class="form form_type_add-image">
+      <form class="form form_type_add-image" novalidate>
         <button type="button" class="button form__button-close"></button>
         <h2 class="form__header">Novo local</h2>
-        <input type="text" name="title" class="form__field" placeholder="Título">
-        <hr class="form__line">
-        <input type="text" name="link" class="form__field" placeholder="Link da imagem">
-        <hr class="form__line">
+        <div class="form__input-area">
+          <input type="text" name="title" id="image-title-input" class="form__field" placeholder="Título" required>
+          <span class="form__input-error image-title-input-error"></span>
+        </div>
+        <div class="form__input-area">
+          <input type="text" name="link" id="image-link-input" class="form__field" placeholder="Link da imagem" required>
+          <span class="form__input-error image-link-input-error"></span>
+        </div>
         <button type="submit" class="form__button-submit">Criar</button>
       </form>
       <div class="popup__overlay"></div>
