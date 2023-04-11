@@ -7,4 +7,6 @@
   font-weight: 400;
   color: #ff0000;
   overflow-wrap: break-word;
+  opacity: 0;
+  transition: .3s;
 }
