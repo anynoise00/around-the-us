@@ -149,3 +149,22 @@ function handleAddImageFormSubmit(ev) {
 
   closeAddImageForm(ev);
 }
+
+const popupList = Array.from(document.querySelectorAll(".popup"));
+popupList.forEach((popupElement) => {
+  const popupOverlay = popupElement.querySelector(".popup__overlay");
+  popupOverlay.addEventListener("click", () => {
+    closePopup(popupElement);
+  });
+});
+
+function closePopup(popupElement) {
+  popupElement.classList.remove("popup_visible");
+}
+
+document.addEventListener("keydown", (ev) => {
+  if (ev.key === "Escape") {
+    const openPopup = document.querySelector(".popup_visible")
+    closePopup(openPopup);
+  }
+});
