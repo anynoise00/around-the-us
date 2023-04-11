@@ -14,7 +14,11 @@
     </header>
     <main class="content">
       <section class="profile">
-        <img src="images/profile_avatar.jpg" alt="Avatar do Usuário" class="profile__avatar">
+        <img
+          src="images/profile_avatar.jpg"
+          alt="Avatar do Usuário"
+          class="profile__avatar"
+        />
         <div class="profile__info">
           <h2 class="profile__name">Jacques Cousteau</h2>
           <p class="profile__description">Explorador</p>
@@ -23,9 +27,7 @@
         <button type="button" class="button profile__button-add"></button>
       </section>
 
-      <ul class="cards">
-
-      </ul>
+      <ul class="cards"></ul>
     </main>
 
     <div class="popup">
@@ -33,14 +35,43 @@
         <button type="button" class="button form__button-close"></button>
         <h2 class="form__header">Editar perfil</h2>
         <div class="form__input-area">
-          <input type="text" name="name" id="profile-name-input" class="form__field form__field_type_error" value="Jacques Cousteau" placeholder="Seu nome" required>
-          <span class="form__input-error profile-name-input-error">A really big error message is written here</span>
+          <input
+            type="text"
+            name="name"
+            id="profile-name-input"
+            class="form__field form__field_type_error"
+            value="Jacques Cousteau"
+            placeholder="Seu nome"
+            minlength="2"
+            maxlength="40"
+            required
+          />
+          <span class="form__input-error profile-name-input-error"
+            >A really big error message is written here</span
+          >
         </div>
         <div class="form__input-area">
-          <input type="text" name="description" id="profile-description-input" class="form__field" value="Explorer" placeholder="Uma breve descrição sobre você" required>
-          <span class="form__input-error profile-description-input-error"></span>
+          <input
+            type="text"
+            name="description"
+            id="profile-description-input"
+            class="form__field"
+            value="Explorer"
+            placeholder="Uma breve descrição sobre você"
+            minlength="2"
+            maxlength="200"
+            required
+          />
+          <span
+            class="form__input-error profile-description-input-error"
+          ></span>
         </div>
-        <button type="submit" class="form__button-submit form__button-submit_inactive">Salvar</button>
+        <button
+          type="submit"
+          class="form__button-submit form__button-submit_inactive"
+        >
+          Salvar
+        </button>
       </form>
       <div class="popup__overlay"></div>
     </div>
@@ -50,11 +81,27 @@
         <button type="button" class="button form__button-close"></button>
         <h2 class="form__header">Novo local</h2>
         <div class="form__input-area">
-          <input type="text" name="title" id="image-title-input" class="form__field" placeholder="Título" required>
+          <input
+            type="text"
+            name="title"
+            id="image-title-input"
+            class="form__field"
+            placeholder="Título"
+            minlength="2"
+            maxlength="30"
+            required
+          />
           <span class="form__input-error image-title-input-error"></span>
         </div>
         <div class="form__input-area">
-          <input type="text" name="link" id="image-link-input" class="form__field" placeholder="Link da imagem" required>
+          <input
+            type="url"
+            name="link"
+            id="image-link-input"
+            class="form__field"
+            placeholder="Link da imagem"
+            required
+          />
           <span class="form__input-error image-link-input-error"></span>
         </div>
         <button type="submit" class="form__button-submit">Criar</button>
@@ -65,7 +112,10 @@
     <div class="popup">
       <div class="image-popup">
         <button type="button" class="button image-popup__button-close"></button>
-        <img alt="Imagem ampliada para melhor vizualização da paisagem" class="image-popup__image">
+        <img
+          alt="Imagem ampliada para melhor vizualização da paisagem"
+          class="image-popup__image"
+        />
         <h2 class="image-popup__title">Imagem Qualquer</h2>
       </div>
 
@@ -79,7 +129,10 @@
     <template id="card-template">
       <li class="card">
         <button type="button" class="card__button-view-image">
-          <img alt="Imagem mostrando a paisagem do lugar que está no cartão" class="card__image">
+          <img
+            alt="Imagem mostrando a paisagem do lugar que está no cartão"
+            class="card__image"
+          />
         </button>
         <h2 class="card__title"></h2>
         <button type="button" class="button card__button-like"></button>
