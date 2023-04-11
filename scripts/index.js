@@ -163,8 +163,8 @@ function closePopup(popupElement) {
 }
 
 document.addEventListener("keydown", (ev) => {
-  if (ev.key === "Escape") {
-    const openPopup = document.querySelector(".popup_visible")
+  const openPopup = document.querySelector(".popup_visible");
+  if (openPopup && ev.key === "Escape") {
     closePopup(openPopup);
   }
 });
