@@ -31,11 +31,15 @@ const initialCards = [
 const cardsContainer = document.querySelector(".cards");
 
 initialCards.forEach((data) => {
-  const card = new Card(data, "#card-template");
-  const cardElemenet = card.generateCard();
-
-  cardsContainer.append(cardElemenet);
+  addCard(data);
 });
+
+function addCard(data) {
+  const card = new Card(data, "#card-template");
+  const cardElement = card.generateCard();
+
+  cardsContainer.append(cardElement);
+}
 
 const imagePopup = document.querySelector(".image-popup").parentElement;
 imagePopup
@@ -46,14 +50,19 @@ function closeImagePopup() {
   imagePopup.classList.remove("popup_visible");
 }
 
-const formValidator = new FormValidator({
+const formConfig = {
   inputSelector: ".form__field",
   submitButtonSelector: ".form__button-submit",
   inactiveButtonClass: "form__button-submit_inactive",
   inputErrorClass: "form__field_type_error",
   errorClass: "form__input-error_active"
-}, ".form");
-formValidator.enableValidation();
+};
+
+const editProfileFV = new FormValidator(formConfig, ".form_type_edit-profile");
+editProfileFV.enableValidation();
+
+const addImageFV = new FormValidator(formConfig, ".form_type_add-image");
+addImageFV.enableValidation();
 
 
 const editProfilePopup = document.querySelector(".form_type_edit-profile").parentElement;
@@ -115,10 +124,10 @@ function closeAddImageForm() {
 function handleAddImageFormSubmit(ev) {
   ev.preventDefault();
 
-  const title = addImageFormInputTitle.value;
-  const link = addImageFormInputLink.value;
-
-  addCard(title, link);
+  addCard({
+    name: addImageFormInputTitle.value,
+    link: addImageFormInputLink.value,
+  });
 
   closeAddImageForm(ev);
 }
