@@ -1,3 +1,5 @@
+import { openImagePopup } from "./utils.js";
+
 export default class Card {
   constructor(data, cardSelector) {
     this._name = data.name;
@@ -52,14 +54,6 @@ export default class Card {
   }
 
   _openPopup() {
-    const popup = document.querySelector(".image-popup").parentElement;
-
-    popup.querySelector(".image-popup__title").textContent = this._name;
-
-    const popupImage = popup.querySelector(".image-popup__image");
-    popupImage.src = this._link;
-    popupImage.alt = this._alt ? this._alt : `Uma imagem ampliada da paisagem do ${this._name}`;
-  
-    popup.classList.add("popup_visible");
+    openImagePopup(this._name, this._link, this._alt);
   }
 }
