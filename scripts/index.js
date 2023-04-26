@@ -1,4 +1,5 @@
 import Card from "./Card.js";
+import FormValidator from "./FormValidator.js";
 
 const initialCards = [
   {
@@ -44,6 +45,15 @@ imagePopup
 function closeImagePopup() {
   imagePopup.classList.remove("popup_visible");
 }
+
+const formValidator = new FormValidator({
+  inputSelector: ".form__field",
+  submitButtonSelector: ".form__button-submit",
+  inactiveButtonClass: "form__button-submit_inactive",
+  inputErrorClass: "form__field_type_error",
+  errorClass: "form__input-error_active"
+}, ".form");
+formValidator.enableValidation();
 
 
 const editProfilePopup = document.querySelector(".form_type_edit-profile").parentElement;
