@@ -11,6 +11,13 @@ import {
   closePopup,
 } from "./utils.js";
 
+const profileElement = document.querySelector(".profile");
+const profileName = "Jacques Cousteau";
+const profileDescription = "Explorador";
+
+profileElement.querySelector(".profile__name").textContent = profileName;
+profileElement.querySelector(".profile__description").textContent = profileDescription;
+
 const initialCards = [
   {
     name: "Vale de Yosemite",
