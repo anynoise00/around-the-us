@@ -16,7 +16,7 @@ export default class Card {
 
     const cardImage = this._element.querySelector(".card__image");
     cardImage.src = this._link;
-    cardImage.alt = this._alt ? this._alt : `Uma imagem da paisagem do ${this._name}`;
+    cardImage.alt = this._alt ?? `Uma imagem da paisagem do ${this._name}`;
 
     return this._element;
   }
