@@ -40,15 +40,13 @@ export const formConfig = {
 
 export const cardTemplate = "#card-template";
 export const cardListSelector = ".cards";
-
 export const editProfilePopupSelector = "#popup-edit-profile";
 export const editProfileFormSelector = ".form_type_edit-profile";
-
 export const addImagePopupSelector = "#popup-add-image";
 export const addImageFormSelector = ".form_type_add-image";
+export const viewerPopupSelector = "#popup-image-view";
 
-export const imageViewPopupSelector = "#popup-image-view";
-
+export const enlargedImage = document.querySelector(".image-popup__image");
 export const profile = document.querySelector(".profile");
 export const profileName = profile.querySelector(".profile__name");
 export const profileDesc = profile.querySelector(".profile__description");

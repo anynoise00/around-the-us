@@ -8,7 +8,8 @@ import FormValidator from "./FormValidator.js";
 import Section from "./Section.js";
 import Card from "./Card.js";
 import Popup from "./Popup.js";
-import { initialCards, cardListSelector, formConfig, editProfileFormSelector, addImageFormSelector, editProfilePopupSelector, addImagePopupSelector, imageViewPopupSelector, cardTemplate, editProfileBtn, addImageBtn } from "./utils/constants.js";
+import PopupWithImage from "./PopupWithImage.js";
+import { initialCards, cardListSelector, formConfig, editProfileFormSelector, addImageFormSelector, editProfilePopupSelector, addImagePopupSelector, viewerPopupSelector, cardTemplate, editProfileBtn, addImageBtn } from "./utils/constants.js";
 
 const profileValidator = new FormValidator(formConfig, editProfileFormSelector);
 profileValidator.enableValidation();
@@ -29,7 +30,7 @@ export const addImagePopup = new Popup(addImagePopupSelector);
 addImagePopup.setEventListeners();
 addImageBtn.addEventListener("click", () => addImagePopup.open());
 
-export const imageViewPopup = new Popup(imageViewPopupSelector);
+export const imageViewPopup = new PopupWithImage(viewerPopupSelector);
 imageViewPopup.setEventListeners();
 
 cardList.renderItems();
