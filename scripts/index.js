@@ -1,5 +1,3 @@
-import Card from "./Card.js";
-import FormValidator from "./FormValidator.js";
 import {
   openProfileForm,
   closeProfileForm,
@@ -11,55 +9,38 @@ import {
   closePopup,
 } from "./utils.js";
 
+import FormValidator from "./FormValidator.js";
+import Card from "./Card.js";
+import { initialCards, cardListSelector } from "./utils/constants.js";
+
+import Section from "./Section.js";
+
+export const cardList = new Section(
+  { items: initialCards, renderer: (item) => addCard(item) },
+  cardListSelector
+);
+
+cardList.renderItems();
+
+export function addCard(item) {
+  const card = new Card(item, "#card-template");
+  const cardElement = card.generateCard();
+
+  cardList.addItem(cardElement);
+}
+
 const profileElement = document.querySelector(".profile");
 const profileName = "Jacques Cousteau";
 const profileDescription = "Explorador";
 
 profileElement.querySelector(".profile__name").textContent = profileName;
-profileElement.querySelector(".profile__description").textContent = profileDescription;
-
-const initialCards = [
-  {
-    name: "Vale de Yosemite",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_yosemite.jpg",
-  },
-  {
-    name: "Lago Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lake-louise.jpg",
-  },
-  {
-    name: "Montanhas Carecas",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_bald-mountains.jpg",
-  },
-  {
-    name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_latemar.jpg",
-  },
-  {
-    name: "Parque Nacional da Vanoise ",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_vanoise.jpg",
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lago.jpg",
-  },
-];
-
-const cardsContainer = document.querySelector(".cards");
-
-export function addCard(data) {
-  const card = new Card(data, "#card-template");
-  const cardElement = card.generateCard();
-
-  cardsContainer.append(cardElement);
-}
-
-initialCards.forEach((data) => {
-  addCard(data);
-});
+profileElement.querySelector(".profile__description").textContent =
+  profileDescription;
 
 const imagePopup = document.querySelector(".image-popup").parentElement;
-imagePopup.querySelector(".popup__button-close").addEventListener("click", closeImagePopup);
+imagePopup
+  .querySelector(".popup__button-close")
+  .addEventListener("click", closeImagePopup);
 
 const formConfig = {
   inputSelector: ".form__field",
@@ -78,7 +59,9 @@ ImageFV.enableValidation();
 const profile = document.querySelector(".profile");
 const editProfileForm = document.querySelector(".form_type_edit-profile");
 const btnEditProfile = profile.querySelector(".profile__button-edit");
-const btnCloseProfileForm = editProfileForm.querySelector(".popup__button-close");
+const btnCloseProfileForm = editProfileForm.querySelector(
+  ".popup__button-close"
+);
 
 btnEditProfile.addEventListener("click", openProfileForm);
 btnCloseProfileForm.addEventListener("click", closeProfileForm);

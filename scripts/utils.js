@@ -1,4 +1,4 @@
-import { addCard } from "./index.js";
+import { cardList, addCard } from "./index.js";
 
 const editProfileForm = document.querySelector(".form_type_edit-profile");
 const profileFormName = editProfileForm.querySelector(
@@ -46,12 +46,13 @@ function closeImageForm() {
 }
 
 function handleImageFormSubmit(ev) {
+  ev.preventDefault();
+
   addCard({
     name: imageFormTitle.value,
     link: imageFormLink.value,
   });
-
-  ev.preventDefault();
+  cardList.renderItems();
   closeImageForm();
 }
 
