@@ -59,7 +59,7 @@ initialCards.forEach((data) => {
 });
 
 const imagePopup = document.querySelector(".image-popup").parentElement;
-imagePopup.querySelector(".image-popup__button-close").addEventListener("click", closeImagePopup);
+imagePopup.querySelector(".popup__button-close").addEventListener("click", closeImagePopup);
 
 const formConfig = {
   inputSelector: ".form__field",
@@ -78,7 +78,7 @@ ImageFV.enableValidation();
 const profile = document.querySelector(".profile");
 const editProfileForm = document.querySelector(".form_type_edit-profile");
 const btnEditProfile = profile.querySelector(".profile__button-edit");
-const btnCloseProfileForm = editProfileForm.querySelector(".form__button-close");
+const btnCloseProfileForm = editProfileForm.querySelector(".popup__button-close");
 
 btnEditProfile.addEventListener("click", openProfileForm);
 btnCloseProfileForm.addEventListener("click", closeProfileForm);
@@ -86,7 +86,7 @@ editProfileForm.addEventListener("submit", handleProfileSubmit);
 
 const addImageForm = document.querySelector(".form_type_add-image");
 const btnAddImage = profile.querySelector(".profile__button-add");
-const btnCloseImageForm = addImageForm.querySelector(".form__button-close");
+const btnCloseImageForm = addImageForm.querySelector(".popup__button-close");
 
 btnAddImage.addEventListener("click", openImageForm);
 btnCloseImageForm.addEventListener("click", closeImageForm);
