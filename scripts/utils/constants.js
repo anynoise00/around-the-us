@@ -25,4 +25,32 @@ export const initialCards = [
   },
 ];
 
+export const initialProfileInfo = {
+  name: "Jacques Cousteau",
+  description: "Explorador",
+};
+
+export const formConfig = {
+  inputSelector: ".form__field",
+  submitButtonSelector: ".form__button-submit",
+  inactiveButtonClass: "form__button-submit_inactive",
+  inputErrorClass: "form__field_type_error",
+  errorClass: "form__input-error_active",
+};
+
+export const cardTemplate = "#card-template";
 export const cardListSelector = ".cards";
+
+export const editProfilePopupSelector = "#popup-edit-profile";
+export const editProfileFormSelector = ".form_type_edit-profile";
+
+export const addImagePopupSelector = "#popup-add-image";
+export const addImageFormSelector = ".form_type_add-image";
+
+export const imageViewPopupSelector = "#popup-image-view";
+
+export const profile = document.querySelector(".profile");
+export const profileName = profile.querySelector(".profile__name");
+export const profileDesc = profile.querySelector(".profile__description");
+export const editProfileBtn = profile.querySelector(".profile__button-edit");
+export const addImageBtn = profile.querySelector(".profile__button-add");

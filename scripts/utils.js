@@ -18,10 +18,6 @@ function openProfileForm() {
   editProfileForm.parentElement.classList.add("popup_visible");
 }
 
-function closeProfileForm() {
-  closePopup(editProfileForm.parentElement);
-}
-
 function handleProfileSubmit(ev) {
   ev.preventDefault();
 
@@ -39,10 +35,6 @@ function openImageForm() {
   imageFormTitle.value = "";
   imageFormLink.value = "";
   addImageForm.parentElement.classList.add("popup_visible");
-}
-
-function closeImageForm() {
-  closePopup(addImageForm.parentElement);
 }
 
 function handleImageFormSubmit(ev) {
@@ -67,22 +59,15 @@ function openImagePopup(name, link, alt) {
   imagePopup.classList.add("popup_visible");
 }
 
-function closeImagePopup() {
-  closePopup(imagePopup);
-}
-
 function closePopup(popupElement) {
   popupElement.classList.remove("popup_visible");
 }
 
 export {
   openProfileForm,
-  closeProfileForm,
   handleProfileSubmit,
   openImageForm,
-  closeImageForm,
   handleImageFormSubmit,
   openImagePopup,
-  closeImagePopup,
   closePopup,
 };
