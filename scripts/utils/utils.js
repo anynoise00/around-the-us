@@ -10,19 +10,11 @@ export function addCard(item) {
 }
 
 function openProfileForm() {
-  console.log("to do: change form initial info")
-}
-
-function openImagePopup() {
-  console.log("to do: change image on popup open");
+  console.log("to do: change form initial info");
 }
 
 function closePopup(popupElement) {
   popupElement.classList.remove("popup_visible");
 }
 
-export {
-  openImagePopup,
-  openProfileForm,
-  closePopup,
-};
+export { openProfileForm, closePopup };

@@ -59,7 +59,7 @@ const addImagePopup = new PopupWithForm(
 const profileValidator = new FormValidator(formConfig, editProfileFormSelector);
 const addImageValidator = new FormValidator(formConfig, addImageFormSelector);
 
-userInfo.setUserInfo(initialUserInfo)
+userInfo.setUserInfo(initialUserInfo);
 addImagePopup.setEventListeners();
 editProfilePopup.setEventListeners();
 imageViewPopup.setEventListeners();

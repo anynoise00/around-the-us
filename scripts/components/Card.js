@@ -1,5 +1,3 @@
-import { openImagePopup } from "../utils/utils.js";
-
 export default class Card {
   constructor(data, cardSelector) {
     this._name = data.name;
@@ -22,38 +20,41 @@ export default class Card {
   }
 
   _setEventListeners() {
-    this._element.querySelector(".card__button-like").addEventListener("click", () => {
-      this._toggleLikeButton();
-    });
-  
-    this._element.querySelector(".card__button-delete").addEventListener("click", () => {
-      this._deleteCard();
-    });
-  
-    this._element.querySelector(".card__button-view-image").addEventListener("click", () => {
-      this._openPopup();
-    });
+    this._element
+      .querySelector(".card__button-like")
+      .addEventListener("click", () => {
+        this._toggleLikeButton();
+      });
+
+    this._element
+      .querySelector(".card__button-delete")
+      .addEventListener("click", () => {
+        this._deleteCard();
+      });
+
+    this._element
+      .querySelector(".card__button-view-image")
+      .addEventListener("click", () => {
+        this._openPopup();
+      });
   }
 
   _getTemplate() {
     const element = document
-    .querySelector(this._cardSelector)
-    .content
-    .querySelector(".card")
-    .cloneNode(true);
+      .querySelector(this._cardSelector)
+      .content.querySelector(".card")
+      .cloneNode(true);
 
     return element;
   }
 
   _toggleLikeButton() {
-    this._element.querySelector(".card__button-like").classList.toggle("card__button-like_active");
-  }
-  
-  _deleteCard() {
-    this._element.remove();
+    this._element
+      .querySelector(".card__button-like")
+      .classList.toggle("card__button-like_active");
   }
 
-  _openPopup() {
-    openImagePopup(this._name, this._link, this._alt);
+  _deleteCard() {
+    this._element.remove();
   }
 }

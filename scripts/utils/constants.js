@@ -49,6 +49,9 @@ export const formSelector = ".form";
 export const formFieldSelector = ".form__field";
 export const profileNameSelector = ".profile__name";
 export const profileWorkSelector = ".profile__description";
+export const popupCloseBtnSelector = ".popup__button-close";
+export const popupOverlaySelector = ".popup__overlay";
+export const popupVisible = "popup_visible";
 
 export const enlargedImage = document.querySelector(".image-popup__image");
 export const profile = document.querySelector(".profile");
