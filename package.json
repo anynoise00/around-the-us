@@ -2,9 +2,10 @@
   "name": "eua-afora",
   "version": "1.0.0",
   "description": "Uma página interativa onde os usuários podem adicionar, remover e curtir fotos.",
-  "main": "src/scripts/pages/index.js",
+  "main": "scripts/pages/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --mode production",
+    "dev": "webpack server --mode development"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,23 @@
   "bugs": {
     "url": "https://github.com/anynoise00/web_project_4_ptbr/issues"
   },
-  "homepage": "https://github.com/anynoise00/web_project_4_ptbr#readme"
+  "homepage": "https://github.com/anynoise00/web_project_4_ptbr#readme",
+  "devDependencies": {
+    "@babel/core": "^7.21.8",
+    "@babel/preset-env": "^7.21.5",
+    "autoprefixer": "^10.4.14",
+    "babel-loader": "^9.1.2",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.7.3",
+    "cssnano": "^6.0.1",
+    "html-webpack-plugin": "^5.5.1",
+    "mini-css-extract-plugin": "^2.7.5",
+    "postcss-loader": "^7.3.0",
+    "webpack": "^5.82.1",
+    "webpack-cli": "^5.1.1",
+    "webpack-dev-server": "^4.15.0"
+  },
+  "dependencies": {
+    "core-js": "^3.30.2"
+  }
 }
