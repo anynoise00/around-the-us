@@ -1,3 +1,11 @@
+import {
+  cardDeleteBtnSelector,
+  cardImageSelector,
+  cardLikeBtnSelector,
+  cardTitleSelector,
+  cardViewBtnSelector,
+} from "../utils/constants.js";
+
 export default class Card {
   constructor({ data, handleCardClick }, cardSelector) {
     this._name = data.name;
@@ -12,9 +20,9 @@ export default class Card {
     this._element = this._getTemplate();
     this._setEventListeners();
 
-    this._element.querySelector(".card__title").textContent = this._name;
+    this._element.querySelector(cardTitleSelector).textContent = this._name;
 
-    const cardImage = this._element.querySelector(".card__image");
+    const cardImage = this._element.querySelector(cardImageSelector);
     cardImage.src = this._link;
     cardImage.alt = this._alt ?? `Uma imagem da paisagem do ${this._name}`;
 
@@ -23,19 +31,19 @@ export default class Card {
 
   _setEventListeners() {
     this._element
-      .querySelector(".card__button-like")
+      .querySelector(cardLikeBtnSelector)
       .addEventListener("click", () => {
         this._toggleLikeButton();
       });
 
     this._element
-      .querySelector(".card__button-delete")
+      .querySelector(cardDeleteBtnSelector)
       .addEventListener("click", () => {
         this._deleteCard();
       });
 
     this._element
-      .querySelector(".card__button-view-image")
+      .querySelector(cardViewBtnSelector)
       .addEventListener("click", () => {
         this._handleCardClick({
           name: this._name,

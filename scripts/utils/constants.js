@@ -52,6 +52,11 @@ export const profileWorkSelector = ".profile__description";
 export const popupCloseBtnSelector = ".popup__button-close";
 export const popupOverlaySelector = ".popup__overlay";
 export const popupVisible = "popup_visible";
+export const cardTitleSelector = ".card__title";
+export const cardImageSelector = ".card__image";
+export const cardLikeBtnSelector = ".card__button-like";
+export const cardDeleteBtnSelector = ".card__button-delete";
+export const cardViewBtnSelector = ".card__button-view-image";
 
 export const enlargedImage = document.querySelector(".image-popup__image");
 export const enlargedImageTitle = document.querySelector(".image-popup__title");
