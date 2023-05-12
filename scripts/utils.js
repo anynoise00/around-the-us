@@ -1,4 +1,13 @@
-import { cardList, addCard } from "./index.js";
+import Card from "./Card.js";
+import { cardList } from "./index.js";
+import { cardTemplate } from "./utils/constants.js";
+
+export function addCard(item) {
+  const card = new Card(item, cardTemplate);
+  const cardElement = card.generateCard();
+
+  cardList.addItem(cardElement);
+}
 
 const editProfileForm = document.querySelector(".form_type_edit-profile");
 const profileFormName = editProfileForm.querySelector(
@@ -18,45 +27,8 @@ function openProfileForm() {
   editProfileForm.parentElement.classList.add("popup_visible");
 }
 
-function handleProfileSubmit(ev) {
-  ev.preventDefault();
-
-  profileName.textContent = profileFormName.value;
-  profileDesc.textContent = profileFormDesc.value;
-
-  closeProfileForm();
-}
-
-const addImageForm = document.querySelector(".form_type_add-image");
-const imageFormTitle = addImageForm.querySelector(".form__field[name='title']");
-const imageFormLink = addImageForm.querySelector(".form__field[name='link']");
-
-function openImageForm() {
-  imageFormTitle.value = "";
-  imageFormLink.value = "";
-  addImageForm.parentElement.classList.add("popup_visible");
-}
-
-function handleImageFormSubmit(ev) {
-  ev.preventDefault();
-
-  addCard({
-    name: imageFormTitle.value,
-    link: imageFormLink.value,
-  });
-  cardList.renderItems();
-  closeImageForm();
-}
-
-const imagePopup = document.querySelector(".image-popup").parentElement;
-function openImagePopup(name, link, alt) {
-  imagePopup.querySelector(".image-popup__title").textContent = name;
-
-  const image = imagePopup.querySelector(".image-popup__image");
-  image.src = link;
-  image.alt = alt ? alt : `Uma imagem ampliada da paisagem do ${name}`;
-
-  imagePopup.classList.add("popup_visible");
+function openImagePopup() {
+  console.log("deprecated");
 }
 
 function closePopup(popupElement) {
@@ -64,10 +36,7 @@ function closePopup(popupElement) {
 }
 
 export {
-  openProfileForm,
-  handleProfileSubmit,
-  openImageForm,
-  handleImageFormSubmit,
   openImagePopup,
+  openProfileForm,
   closePopup,
 };

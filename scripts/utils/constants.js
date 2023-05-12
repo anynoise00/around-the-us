@@ -45,6 +45,8 @@ export const editProfileFormSelector = ".form_type_edit-profile";
 export const addImagePopupSelector = "#popup-add-image";
 export const addImageFormSelector = ".form_type_add-image";
 export const viewerPopupSelector = "#popup-image-view";
+export const formSelector = ".form";
+export const formFieldSelector = ".form__field";
 
 export const enlargedImage = document.querySelector(".image-popup__image");
 export const profile = document.querySelector(".profile");
