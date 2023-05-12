@@ -3,6 +3,7 @@ import FormValidator from "./FormValidator.js";
 import Section from "./Section.js";
 import PopupWithImage from "./PopupWithImage.js";
 import PopupWithForm from "./PopupWithForm.js";
+import UserInfo from "./UserInfo.js";
 import {
   initialCards,
   cardListSelector,
@@ -14,33 +15,32 @@ import {
   viewerPopupSelector,
   editProfileBtn,
   addImageBtn,
-  profileName,
-  profileDesc,
+  profileNameSelector,
+  profileWorkSelector,
+  initialUserInfo,
 } from "./utils/constants.js";
 
-const profileValidator = new FormValidator(formConfig, editProfileFormSelector);
-const addImageValidator = new FormValidator(formConfig, addImageFormSelector);
+const userInfo = new UserInfo(profileNameSelector, profileWorkSelector);
 
 export const cardList = new Section(
   { items: initialCards, renderer: (item) => addCard(item) },
   cardListSelector
 );
 
-export const editProfilePopup = new PopupWithForm(
+export const imageViewPopup = new PopupWithImage(viewerPopupSelector);
+
+const editProfilePopup = new PopupWithForm(
   {
     handleFormSubmit: (ev, values) => {
       ev.preventDefault();
-
-      profileName.textContent = values.name;
-      profileDesc.textContent = values.description;
-
+      userInfo.setUserInfo({ name: values.name, work: values.description });
       editProfilePopup.close();
     },
   },
   editProfilePopupSelector
 );
 
-export const addImagePopup = new PopupWithForm(
+const addImagePopup = new PopupWithForm(
   {
     handleFormSubmit: (ev, values) => {
       ev.preventDefault();
@@ -56,8 +56,10 @@ export const addImagePopup = new PopupWithForm(
   addImagePopupSelector
 );
 
-export const imageViewPopup = new PopupWithImage(viewerPopupSelector);
+const profileValidator = new FormValidator(formConfig, editProfileFormSelector);
+const addImageValidator = new FormValidator(formConfig, addImageFormSelector);
 
+userInfo.setUserInfo(initialUserInfo)
 addImagePopup.setEventListeners();
 editProfilePopup.setEventListeners();
 imageViewPopup.setEventListeners();

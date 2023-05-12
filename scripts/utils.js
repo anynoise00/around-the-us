@@ -9,26 +9,12 @@ export function addCard(item) {
   cardList.addItem(cardElement);
 }
 
-const editProfileForm = document.querySelector(".form_type_edit-profile");
-const profileFormName = editProfileForm.querySelector(
-  ".form__field[name='name']"
-);
-const profileFormDesc = editProfileForm.querySelector(
-  ".form__field[name='description']"
-);
-
-const profile = document.querySelector(".profile");
-const profileName = profile.querySelector(".profile__name");
-const profileDesc = profile.querySelector(".profile__description");
-
 function openProfileForm() {
-  profileFormName.value = profileName.textContent;
-  profileFormDesc.value = profileDesc.textContent;
-  editProfileForm.parentElement.classList.add("popup_visible");
+  console.log("to do: change form initial info")
 }
 
 function openImagePopup() {
-  console.log("deprecated");
+  console.log("to do: change image on popup open");
 }
 
 function closePopup(popupElement) {
