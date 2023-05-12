@@ -9,7 +9,6 @@ export default class PopupWithImage extends Popup {
   open({ link, alt = "Uma imagem ampliada da paisagem." }) {
     enlargedImage.src = link;
     enlargedImage.alt = alt;
-    console.log(link);
 
     super.open();
   }
