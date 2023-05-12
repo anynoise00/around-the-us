@@ -33,9 +33,10 @@ const editProfilePopup = new PopupWithForm(
   {
     handleFormSubmit: (ev, values) => {
       ev.preventDefault();
-      userInfo.setUserInfo({ name: values.name, work: values.description });
+      userInfo.setUserInfo({ name: values.name, work: values.work });
       editProfilePopup.close();
     },
+    onOpen: () => editProfilePopup.setFormValues(userInfo.getUserInfo()),
   },
   editProfilePopupSelector
 );

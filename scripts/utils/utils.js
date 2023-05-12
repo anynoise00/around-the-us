@@ -16,9 +16,3 @@ export function addCard(item) {
 
   cardList.addItem(cardElement);
 }
-
-function openProfileForm() {
-  console.log("to do: change form initial info");
-}
-
-export { openProfileForm };
