@@ -1,33 +1,27 @@
 export const initialCards = [
   {
     name: "Vale de Yosemite",
-    link: new URL("../../images/element_vale-de-yosemite.png", import.meta.url),
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_yosemite.jpg",
   },
   {
     name: "Lago Louise",
-    link: new URL("../../images/element_vale-de-yosemite.png", import.meta.url),
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lake-louise.jpg",
   },
   {
     name: "Montanhas Carecas",
-    link: new URL(
-      "../../images/element_montanhas-carecas.png",
-      import.meta.url
-    ),
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_bald-mountains.jpg",
   },
   {
     name: "Latemar",
-    link: new URL("../../images/element_latemar.png", import.meta.url),
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_latemar.jpg",
   },
   {
     name: "Parque Nacional da Vanoise ",
-    link: new URL(
-      "../../images/element_vanoise-national-park.png",
-      import.meta.url
-    ),
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_vanoise.jpg",
   },
   {
     name: "Lago di Braies",
-    link: new URL("../../images/element_lago-de-braies.png", import.meta.url),
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lago.jpg",
   },
 ];
 
