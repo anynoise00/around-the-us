@@ -1,9 +1,11 @@
 export default class Card {
-  constructor(data, cardSelector) {
+  constructor({ data, handleCardClick }, cardSelector) {
     this._name = data.name;
     this._link = data.link;
     this._alt = data.alt;
     this._cardSelector = cardSelector;
+
+    this._handleCardClick = handleCardClick;
   }
 
   generateCard() {
@@ -35,7 +37,11 @@ export default class Card {
     this._element
       .querySelector(".card__button-view-image")
       .addEventListener("click", () => {
-        this._openPopup();
+        this._handleCardClick({
+          name: this._name,
+          link: this._link,
+          alt: this._alt,
+        });
       });
   }
 

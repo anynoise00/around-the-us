@@ -54,6 +54,7 @@ export const popupOverlaySelector = ".popup__overlay";
 export const popupVisible = "popup_visible";
 
 export const enlargedImage = document.querySelector(".image-popup__image");
+export const enlargedImageTitle = document.querySelector(".image-popup__title");
 export const profile = document.querySelector(".profile");
 export const editProfileBtn = profile.querySelector(".profile__button-edit");
 export const addImageBtn = profile.querySelector(".profile__button-add");

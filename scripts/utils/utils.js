@@ -1,9 +1,17 @@
 import Card from "../components/Card.js";
-import { cardList } from "../pages/index.js";
-import { cardTemplate } from "./constants.js";
+import { cardList, imageViewPopup } from "../pages/index.js";
+import { cardTemplate, popupVisible } from "./constants.js";
 
 export function addCard(item) {
-  const card = new Card(item, cardTemplate);
+  const card = new Card(
+    {
+      data: item,
+      handleCardClick: (imgData) => {
+        imageViewPopup.open(imgData);
+      },
+    },
+    cardTemplate
+  );
   const cardElement = card.generateCard();
 
   cardList.addItem(cardElement);
@@ -14,7 +22,7 @@ function openProfileForm() {
 }
 
 function closePopup(popupElement) {
-  popupElement.classList.remove("popup_visible");
+  popupElement.classList.remove(popupVisible);
 }
 
 export { openProfileForm, closePopup };
