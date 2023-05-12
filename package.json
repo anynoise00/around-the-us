@@ -1,0 +1,19 @@
+{
+  "name": "eua-afora",
+  "version": "1.0.0",
+  "description": "Uma página interativa onde os usuários podem adicionar, remover e curtir fotos.",
+  "main": "src/scripts/pages/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anynoise00/web_project_4_ptbr.git"
+  },
+  "author": "Vinícius Eduardo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anynoise00/web_project_4_ptbr/issues"
+  },
+  "homepage": "https://github.com/anynoise00/web_project_4_ptbr#readme"
+}
