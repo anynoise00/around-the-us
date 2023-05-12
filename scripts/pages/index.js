@@ -18,7 +18,7 @@ import {
   profileWorkSelector,
   initialUserInfo,
 } from "../utils/constants.js";
-import { addCard, closePopup } from "../utils/utils.js";
+import { addCard } from "../utils/utils.js";
 
 const userInfo = new UserInfo(profileNameSelector, profileWorkSelector);
 
@@ -68,11 +68,3 @@ editProfileBtn.addEventListener("click", () => editProfilePopup.open());
 profileValidator.enableValidation();
 addImageValidator.enableValidation();
 cardList.renderItems();
-
-// to do
-document.addEventListener("keydown", (ev) => {
-  const openPopup = document.querySelector(".popup_visible");
-  if (openPopup && ev.key === "Escape") {
-    closePopup(openPopup);
-  }
-});

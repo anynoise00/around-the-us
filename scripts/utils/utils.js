@@ -21,8 +21,4 @@ function openProfileForm() {
   console.log("to do: change form initial info");
 }
 
-function closePopup(popupElement) {
-  popupElement.classList.remove(popupVisible);
-}
-
-export { openProfileForm, closePopup };
+export { openProfileForm };
