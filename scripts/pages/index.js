@@ -37,6 +37,7 @@ const editProfilePopup = new PopupWithForm(
       editProfilePopup.close();
     },
     onOpen: () => editProfilePopup.setFormValues(userInfo.getUserInfo()),
+    onClose: () => profileValidator.clearWarnings(),
   },
   editProfilePopupSelector
 );
@@ -53,6 +54,7 @@ const addImagePopup = new PopupWithForm(
 
       addImagePopup.close();
     },
+    onClose: () => addImageValidator.clearWarnings(),
   },
   addImagePopupSelector
 );
