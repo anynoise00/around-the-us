@@ -1,6 +1,6 @@
-import Card from "./Card.js";
-import { cardList } from "./index.js";
-import { cardTemplate } from "./utils/constants.js";
+import Card from "../components/Card.js";
+import { cardList } from "../pages/index.js";
+import { cardTemplate } from "./constants.js";
 
 export function addCard(item) {
   const card = new Card(item, cardTemplate);

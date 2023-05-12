@@ -1,9 +1,8 @@
-import { addCard, closePopup } from "./utils.js";
-import FormValidator from "./FormValidator.js";
-import Section from "./Section.js";
-import PopupWithImage from "./PopupWithImage.js";
-import PopupWithForm from "./PopupWithForm.js";
-import UserInfo from "./UserInfo.js";
+import FormValidator from "../components/FormValidator.js";
+import Section from "../components/Section.js";
+import PopupWithImage from "../components/PopupWithImage.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+import UserInfo from "../components/UserInfo.js";
 import {
   initialCards,
   cardListSelector,
@@ -18,7 +17,8 @@ import {
   profileNameSelector,
   profileWorkSelector,
   initialUserInfo,
-} from "./utils/constants.js";
+} from "../utils/constants.js";
+import { addCard, closePopup } from "../utils/utils.js";
 
 const userInfo = new UserInfo(profileNameSelector, profileWorkSelector);
 
