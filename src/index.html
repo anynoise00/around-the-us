@@ -8,12 +8,16 @@
   </head>
   <body class="page">
     <header class="header">
-      <img src="images/logo.svg" alt="Logo da EUA Afora" class="header__logo" />
+      <img
+        src="<%=require('./images/logo.svg')%>"
+        alt="Logo da EUA Afora"
+        class="header__logo"
+      />
     </header>
     <main class="content">
       <section class="profile">
         <img
-          src="images/profile_avatar.jpg"
+          src="<%=require('./images/profile_avatar.jpg')%>"
           alt="Avatar do Usuário"
           class="profile__avatar"
         />
@@ -111,7 +115,7 @@
       <div class="image-popup">
         <button type="button" class="button popup__button-close"></button>
         <img
-          src="--"
+          src=""
           alt="Imagem ampliada para melhor vizualização da paisagem"
           class="image-popup__image"
         />
