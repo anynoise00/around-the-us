@@ -47,7 +47,7 @@ export default class FormValidator {
 
   _checkInputValidity(input) {
     if (!input.validity.valid) {
-      this._showInputError(input, input.validationMessage);
+      this._showInputError(input);
     } else {
       this._hideInputError(input);
     }
@@ -65,10 +65,10 @@ export default class FormValidator {
     return inputList.some((inputElement) => !inputElement.validity.valid);
   }
 
-  _showInputError(input, errorMessage) {
+  _showInputError(input) {
     const errorElement = this._form.querySelector(`.${input.id}-error`);
     input.classList.add(this._inputErrorClass);
-    errorElement.textContent = errorMessage;
+    errorElement.textContent = input.validationMessage;
     errorElement.classList.add(this._errorClass);
   }
 
