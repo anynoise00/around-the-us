@@ -25,7 +25,7 @@ import { addCard } from "../utils/utils.js";
 const userInfo = new UserInfo(profileNameSelector, profileWorkSelector);
 
 export const cardList = new Section(
-  { items: initialCards, renderer: (item) => addCard(item) },
+  { items: initialCards, renderer: addCard },
   cardListSelector
 );
 
