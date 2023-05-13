@@ -46,8 +46,9 @@ export default class FormValidator {
   }
 
   _checkInputValidity(input) {
+    this._setCustomErrorMessage(input);
     if (!input.validity.valid) {
-      this._showInputError(input);
+      this._showInputError(input, input.validationMessage);
     } else {
       this._hideInputError(input);
     }
@@ -65,10 +66,23 @@ export default class FormValidator {
     return inputList.some((inputElement) => !inputElement.validity.valid);
   }
 
-  _showInputError(input) {
+  _showInputError(input, errorMessage) {
     const errorElement = this._form.querySelector(`.${input.id}-error`);
     input.classList.add(this._inputErrorClass);
-    errorElement.textContent = input.validationMessage;
+    /* 
+      Boa tarde. Esta é minha primeira vez enviando um comentário pro revisor,
+      então minha primeira pergunta é: uma revisão com comentários conta pro limite
+      de 4 revisões máximas? (vejo que na lista de checagem isso é marcado como 
+      "projeto rejeitado sem revisão")
+
+      E também finalmente acho que resolvi a parte do erro de validação. Eu não
+      sei o motivo de pra você estar aparecendo em inglês, talvez tenha algo
+      a ver com o navegador. Mas sinto que usar a solução de usar um objeto com
+      as mensagens de vallidação como chave causaria problemas mais pra frente.
+      Pois mesmo chegando o valor no console, ele estava em português, então não
+      seria possível acessar o objeto.
+    */
+    errorElement.textContent = errorMessage;
     errorElement.classList.add(this._errorClass);
   }
 
@@ -77,5 +91,19 @@ export default class FormValidator {
     input.classList.remove(this._inputErrorClass);
     errorElement.classList.remove(this._errorClass);
     errorElement.textContent = "";
+  }
+
+  _setCustomErrorMessage(input) {
+    const validityState = input.validity;
+
+    if (validityState.valueMissing) {
+      input.setCustomValidity("Preencha este campo.");
+    } else if (validityState.tooShort) {
+      input.setCustomValidity("Por favor, insira pelo menos 2 caracteres.");
+    } else if (validityState.typeMismatch) {
+      input.setCustomValidity("Por favor, insira um endereço web.");
+    } else {
+      input.setCustomValidity("");
+    }
   }
 }
