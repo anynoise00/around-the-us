@@ -1,18 +1,26 @@
-import Card from "../components/Card.js";
-import { cardList, imageViewPopup } from "../pages/index.js";
-import { cardTemplate } from "./constants.js";
+import Card from "../components/Card";
+import { cardList, imageViewPopup } from "../pages";
+import { cardTemplate } from "./constants";
 
-export function addCard(item) {
+export function addCardToPage(data) {
   const card = new Card(
     {
-      data: item,
+      data,
       handleCardClick: (imgData) => {
         imageViewPopup.open(imgData);
       },
     },
     cardTemplate
   );
-  const cardElement = card.generateCard();
 
+  const cardElement = card.generateCard();
   cardList.addItem(cardElement);
+}
+
+export function checkResponse(res) {
+  if (res.ok) {
+    return res.json();
+  }
+
+  return Promise.reject(`Error: ${res.status}`);
 }

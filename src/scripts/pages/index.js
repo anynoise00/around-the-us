@@ -21,8 +21,8 @@ import {
   token,
   profileAvatarSelector,
 } from "../utils/constants.js";
-import { addCard } from "../utils/utils.js";
 import Api from "../components/Api";
+import { addCardToPage } from "../utils/utils";
 
 const aroundApi = new Api({
   baseUrl: `https://around.nomoreparties.co/v1/${groupId}`,
@@ -38,24 +38,21 @@ const userInfo = new UserInfo(
   profileAvatarSelector
 );
 
-export let cardList = null;
-
 aroundApi.getUserData().then((result) => {
   userInfo.setUserInfo(result);
   userInfo.setUserAvatar(result);
 });
 
+export let cardList = null;
 aroundApi
   .getInitialCards()
   .then((result) => {
     cardList = new Section(
-      { items: result, renderer: addCard },
+      { items: result, renderer: addCardToPage },
       cardListSelector
     );
   })
   .then(() => cardList.renderItems());
-
-export const imageViewPopup = new PopupWithImage(viewerPopupSelector);
 
 const editProfilePopup = new PopupWithForm(
   {
@@ -78,19 +75,19 @@ const addImagePopup = new PopupWithForm(
   {
     handleFormSubmit: (ev, values) => {
       ev.preventDefault();
-
-      addCard({
-        name: values.title,
-        link: values.link,
-      });
-
-      addImagePopup.close();
+      aroundApi
+        .addCard({ name: values.title, link: values.link })
+        .then((result) => {
+          addCardToPage(result);
+          addImagePopup.close();
+        });
     },
     onClose: () => addImageValidator.clearWarnings(),
   },
   addImagePopupSelector
 );
 
+export const imageViewPopup = new PopupWithImage(viewerPopupSelector);
 const profileValidator = new FormValidator(formConfig, editProfileFormSelector);
 const addImageValidator = new FormValidator(formConfig, addImageFormSelector);
 
