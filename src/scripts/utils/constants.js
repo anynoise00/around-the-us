@@ -38,6 +38,9 @@ export const formConfig = {
   errorClass: "form__input-error_active",
 };
 
+export const groupId = "web_ptbr_04";
+export const token = "56988fc2-c072-4a64-b0a6-6eaae5ae8b3e";
+
 export const cardTemplate = "#card-template";
 export const cardListSelector = ".cards";
 export const editProfilePopupSelector = "#popup-edit-profile";
