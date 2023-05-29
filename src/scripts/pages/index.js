@@ -6,7 +6,6 @@ import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
 import {
-  initialCards,
   cardListSelector,
   formConfig,
   editProfileFormSelector,
@@ -17,15 +16,30 @@ import {
   editProfileBtn,
   addImageBtn,
   profileNameSelector,
-  profileWorkSelector,
-  initialUserInfo,
+  profileAboutSelector,
+  groupId,
+  token,
+  profileAvatarSelector,
 } from "../utils/constants.js";
 import { addCard } from "../utils/utils.js";
+import Api from "../components/Api";
 
-const userInfo = new UserInfo(profileNameSelector, profileWorkSelector);
+const API = new Api({
+  baseUrl: `https://around.nomoreparties.co/v1/${groupId}`,
+  headers: {
+    authorization: token,
+    "Content-Type": "application/json",
+  },
+});
+
+const userInfo = new UserInfo(
+  profileNameSelector,
+  profileAboutSelector,
+  profileAvatarSelector
+);
 
 export const cardList = new Section(
-  { items: initialCards, renderer: addCard },
+  { items: API.getInitialCards(), renderer: addCard },
   cardListSelector
 );
 
@@ -64,7 +78,6 @@ const addImagePopup = new PopupWithForm(
 const profileValidator = new FormValidator(formConfig, editProfileFormSelector);
 const addImageValidator = new FormValidator(formConfig, addImageFormSelector);
 
-userInfo.setUserInfo(initialUserInfo);
 addImagePopup.setEventListeners();
 editProfilePopup.setEventListeners();
 imageViewPopup.setEventListeners();

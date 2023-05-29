@@ -25,11 +25,6 @@ export const initialCards = [
   },
 ];
 
-export const initialUserInfo = {
-  name: "Jacques Cousteau",
-  work: "Explorador",
-};
-
 export const formConfig = {
   inputSelector: ".form__field",
   submitButtonSelector: ".form__button-submit",
@@ -51,7 +46,8 @@ export const viewerPopupSelector = "#popup-image-view";
 export const formSelector = ".form";
 export const formFieldSelector = ".form__field";
 export const profileNameSelector = ".profile__name";
-export const profileWorkSelector = ".profile__description";
+export const profileAboutSelector = ".profile__description";
+export const profileAvatarSelector = ".profile__avatar";
 export const popupCloseBtnSelector = ".popup__button-close";
 export const popupOverlaySelector = ".popup__overlay";
 export const popupVisible = "popup_visible";
