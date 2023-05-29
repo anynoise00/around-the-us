@@ -1,17 +1,21 @@
 import {
+  cardBtnLikeActive,
   cardDeleteBtnSelector,
   cardImageSelector,
   cardLikeBtnSelector,
+  cardLikeCounterSelector,
+  cardSelector,
   cardTitleSelector,
   cardViewBtnSelector,
 } from "../utils/constants.js";
 
 export default class Card {
-  constructor({ data, handleCardClick }, cardSelector) {
+  constructor({ data, handleCardClick }, templateSelector) {
     this._name = data.name;
     this._link = data.link;
     this._alt = data.alt;
-    this._cardSelector = cardSelector;
+    this._likeCount = data.likes.length;
+    this._templateSelector = templateSelector;
 
     this._handleCardClick = handleCardClick;
   }
@@ -25,6 +29,9 @@ export default class Card {
     const cardImage = this._element.querySelector(cardImageSelector);
     cardImage.src = this._link;
     cardImage.alt = this._alt ?? `Uma imagem da paisagem do ${this._name}`;
+
+    this._element.querySelector(cardLikeCounterSelector).textContent =
+      this._likeCount;
 
     return this._element;
   }
@@ -55,8 +62,8 @@ export default class Card {
 
   _getTemplate() {
     const element = document
-      .querySelector(this._cardSelector)
-      .content.querySelector(".card")
+      .querySelector(this._templateSelector)
+      .content.querySelector(cardSelector)
       .cloneNode(true);
 
     return element;
@@ -64,8 +71,8 @@ export default class Card {
 
   _toggleLikeButton() {
     this._element
-      .querySelector(".card__button-like")
-      .classList.toggle("card__button-like_active");
+      .querySelector(cardLikeBtnSelector)
+      .classList.toggle(cardBtnLikeActive);
   }
 
   _deleteCard() {

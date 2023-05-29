@@ -9,7 +9,6 @@ export const formConfig = {
 export const groupId = "web_ptbr_04";
 export const token = "56988fc2-c072-4a64-b0a6-6eaae5ae8b3e";
 
-export const cardTemplate = "#card-template";
 export const cardListSelector = ".cards";
 export const editProfilePopupSelector = "#popup-edit-profile";
 export const editProfileFormSelector = ".form_type_edit-profile";
@@ -24,11 +23,15 @@ export const profileAvatarSelector = ".profile__avatar";
 export const popupCloseBtnSelector = ".popup__button-close";
 export const popupOverlaySelector = ".popup__overlay";
 export const popupVisible = "popup_visible";
+export const cardTemplateSelector = "#card-template";
+export const cardSelector = ".card";
 export const cardTitleSelector = ".card__title";
 export const cardImageSelector = ".card__image";
 export const cardLikeBtnSelector = ".card__button-like";
+export const cardLikeCounterSelector = ".card__like-counter";
 export const cardDeleteBtnSelector = ".card__button-delete";
 export const cardViewBtnSelector = ".card__button-view-image";
+export const cardBtnLikeActive = "card__button-like_active";
 
 export const enlargedImage = document.querySelector(".image-popup__image");
 export const enlargedImageTitle = document.querySelector(".image-popup__title");

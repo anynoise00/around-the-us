@@ -1,6 +1,6 @@
 .card__button-like {
   position: absolute;
-  bottom: 30px;
+  top: 22px;
   right: 18px;
   background-image: url("../../../images/icon_like-inactive.svg");
   background-size: contain;

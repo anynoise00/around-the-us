@@ -1,6 +1,6 @@
 import Card from "../components/Card";
 import { cardList, imageViewPopup } from "../pages";
-import { cardTemplate } from "./constants";
+import { cardTemplateSelector } from "./constants";
 
 export function addCardToPage(data) {
   const card = new Card(
@@ -10,7 +10,7 @@ export function addCardToPage(data) {
         imageViewPopup.open(imgData);
       },
     },
-    cardTemplate
+    cardTemplateSelector
   );
 
   const cardElement = card.generateCard();

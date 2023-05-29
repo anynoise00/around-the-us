@@ -1,5 +1,4 @@
 .card__title {
-  grid-area: title;
   max-width: 220px;
   position: absolute;
   left: 21px;

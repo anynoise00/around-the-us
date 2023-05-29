@@ -130,12 +130,15 @@
 
     <template id="card-template">
       <li class="card">
+        <button type="button" class="button card__button-delete"></button>
         <button type="button" class="card__button-view-image">
           <img alt="--" class="card__image" />
         </button>
-        <h2 class="card__title"></h2>
-        <button type="button" class="button card__button-like"></button>
-        <button type="button" class="button card__button-delete"></button>
+        <div class="card__info-container">
+          <h2 class="card__title"></h2>
+          <button type="button" class="button card__button-like"></button>
+          <p class="card__like-counter">0</p>
+        </div>
       </li>
     </template>
   </body>

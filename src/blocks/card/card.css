@@ -1,10 +1,10 @@
 .card {
   position: relative;
   display: grid;
-  grid-template-rows: auto 1fr;
-  grid-template-areas: 
+  grid-template-rows: 282px 1fr;
+  grid-template-areas:
     "image"
-    "title";
+    "info";
   width: 282px;
   height: 361px;
   border-radius: 10px;
