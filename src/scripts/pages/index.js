@@ -24,7 +24,7 @@ import {
 import { addCard } from "../utils/utils.js";
 import Api from "../components/Api";
 
-const API = new Api({
+const aroundApi = new Api({
   baseUrl: `https://around.nomoreparties.co/v1/${groupId}`,
   headers: {
     authorization: token,
@@ -38,10 +38,22 @@ const userInfo = new UserInfo(
   profileAvatarSelector
 );
 
-export const cardList = new Section(
-  { items: API.getInitialCards(), renderer: addCard },
-  cardListSelector
-);
+export let cardList = null;
+
+aroundApi.getUserData().then((result) => {
+  userInfo.setUserInfo(result);
+  userInfo.setUserAvatar(result.avatar);
+});
+
+aroundApi
+  .getInitialCards()
+  .then((result) => {
+    cardList = new Section(
+      { items: result, renderer: addCard },
+      cardListSelector
+    );
+  })
+  .then(() => cardList.renderItems());
 
 export const imageViewPopup = new PopupWithImage(viewerPopupSelector);
 
@@ -85,4 +97,3 @@ addImageBtn.addEventListener("click", () => addImagePopup.open());
 editProfileBtn.addEventListener("click", () => editProfilePopup.open());
 profileValidator.enableValidation();
 addImageValidator.enableValidation();
-cardList.renderItems();
