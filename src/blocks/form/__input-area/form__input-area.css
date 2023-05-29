@@ -1,7 +1,8 @@
 .form__input-area {
   position: relative;
   width: 100%;
-  margin-bottom: 30px;
+  padding-top: 16px;
+  margin-bottom: 14px;
 }
 
 .form__input-area:last-of-type {
