@@ -16,6 +16,23 @@ export default class Api {
     });
   }
 
+  updateUserData({ name, about }) {
+    return fetch(this._baseUrl + `/users/me`, {
+      method: "PATCH",
+      headers: this._headers,
+      body: JSON.stringify({
+        name,
+        about,
+      }),
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+
+      return Promise.reject(`Error: ${res.status}`);
+    });
+  }
+
   getInitialCards() {
     return fetch(this._baseUrl + `/cards`, {
       headers: this._headers,

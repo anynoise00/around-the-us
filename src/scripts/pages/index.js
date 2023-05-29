@@ -42,7 +42,7 @@ export let cardList = null;
 
 aroundApi.getUserData().then((result) => {
   userInfo.setUserInfo(result);
-  userInfo.setUserAvatar(result.avatar);
+  userInfo.setUserAvatar(result);
 });
 
 aroundApi
@@ -61,8 +61,12 @@ const editProfilePopup = new PopupWithForm(
   {
     handleFormSubmit: (ev, values) => {
       ev.preventDefault();
-      userInfo.setUserInfo({ name: values.name, work: values.work });
-      editProfilePopup.close();
+      aroundApi
+        .updateUserData({ name: values.name, about: values.about })
+        .then((result) => {
+          userInfo.setUserInfo(result);
+          editProfilePopup.close();
+        });
     },
     onOpen: () => editProfilePopup.setFormValues(userInfo.getUserInfo()),
     onClose: () => profileValidator.clearWarnings(),
