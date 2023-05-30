@@ -14,4 +14,6 @@ Essas classes estão separadas em módulos, para melhorar a organização do pro
 
 O projeto foi empacotado usando webpack para melhorar o carregamento da página juntando todos os arquivos em um só.
 
+No final todos os componentes do projeto foram integrados com o servidor, agora permitindo que diferentes usuários possam postar, deletar e curtir fotos.
+
 Você pode checar o estado atual do projeto neste [link](https://anynoise00.github.io/web_project_4_ptbr/).
