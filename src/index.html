@@ -16,11 +16,14 @@
     </header>
     <main class="content">
       <section class="profile">
-        <img
-          src="<%=require('./images/profile_avatar.jpg')%>"
-          alt="Avatar do Usuário"
-          class="profile__avatar"
-        />
+        <div class="profile__avatar-container">
+          <img
+            src="<%=require('./images/profile_avatar.jpg')%>"
+            alt="Avatar do Usuário"
+            class="profile__avatar"
+          />
+          <div class="profile__avatar-overlay"></div>
+        </div>
         <div class="profile__info">
           <h2 class="profile__name"></h2>
           <p class="profile__description"></p>
@@ -107,6 +110,26 @@
           <span class="form__input-error image-link-input-error"></span>
         </div>
         <button type="submit" class="form__button-submit">Criar</button>
+      </form>
+      <div class="popup__overlay"></div>
+    </div>
+
+    <div id="popup-edit-avatar" class="popup">
+      <form class="form form_type_edit-avatar" novalidate>
+        <button type="button" class="button popup__button-close"></button>
+        <h2 class="form__header">Alterar a foto de perfil</h2>
+        <div class="form__input-area">
+          <input
+            type="url"
+            name="link"
+            id="image-link-input"
+            class="form__field"
+            placeholder="Link da imagem"
+            required
+          />
+          <span class="form__input-error image-link-input-error"></span>
+        </div>
+        <button type="submit" class="form__button-submit">Salvar</button>
       </form>
       <div class="popup__overlay"></div>
     </div>

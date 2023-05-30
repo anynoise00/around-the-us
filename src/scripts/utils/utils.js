@@ -26,6 +26,6 @@ export function checkResponse(res) {
   return Promise.reject(`Error: ${res.status}`);
 }
 
-export function logError(err) {
-  console.log(`Error: ${err}`);
+export function alertError(err) {
+  alert(`Algo deu errado. ${err}.`);
 }

@@ -14,7 +14,7 @@ import {
   cardTitleSelector,
   cardViewBtnSelector,
 } from "../utils/constants.js";
-import { logError } from "../utils/utils.js";
+import { alertError } from "../utils/utils.js";
 
 export default class Card {
   constructor({ data, handleCardClick, userId }, templateSelector) {
@@ -71,7 +71,7 @@ export default class Card {
         .querySelector(cardDeleteBtnSelector)
         .addEventListener("click", () => {
           confirmDeletionPopup.setConfirmAction(() => {
-            aroundApi.deleteCard(this._id).catch(logError);
+            aroundApi.deleteCard(this._id).catch(alertError);
             this._deleteCard();
             confirmDeletionPopup.close();
           });
@@ -113,7 +113,7 @@ export default class Card {
         this._likeCount = res.likes.length;
         this._renderLikes();
       })
-      .catch(logError);
+      .catch(alertError);
   }
 
   _like() {

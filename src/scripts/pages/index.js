@@ -21,9 +21,12 @@ import {
   token,
   profileAvatarSelector,
   confirmationPopupSelector,
+  profileAvatarOverlay,
+  editAvatarPopupSelector,
+  editAvatarFormSelector,
 } from "../utils/constants.js";
 import Api from "../components/Api";
-import { addCardToPage, logError } from "../utils/utils";
+import { addCardToPage, alertError } from "../utils/utils";
 import ConfirmationPopup from "../components/ConfirmationPopup";
 
 export const aroundApi = new Api({
@@ -62,9 +65,9 @@ aroundApi
         );
       })
       .then(() => cardSection.renderItems())
-      .catch(logError);
+      .catch(alertError);
   })
-  .catch(logError);
+  .catch(alertError);
 
 const editProfilePopup = new PopupWithForm(
   {
@@ -75,7 +78,8 @@ const editProfilePopup = new PopupWithForm(
         .then((result) => {
           userInfo.setUserInfo(result);
           editProfilePopup.close();
-        });
+        })
+        .catch(alertError);
     },
     onOpen: () => editProfilePopup.setFormValues(userInfo.getUserInfo()),
     onClose: () => profileValidator.clearWarnings(),
@@ -92,26 +96,55 @@ const addImagePopup = new PopupWithForm(
         .then((result) => {
           addCardToPage(result);
           addImagePopup.close();
-        });
+        })
+        .catch(alertError);
     },
     onClose: () => addImageValidator.clearWarnings(),
   },
   addImagePopupSelector
 );
 
+const editAvatarPopup = new PopupWithForm(
+  {
+    handleFormSubmit: (ev, values) => {
+      ev.preventDefault();
+      aroundApi
+        .updateAvatar({ avatar: values.avatar })
+        .then(() => {
+          userInfo.setUserAvatar({ avatar: values.avatar });
+          editAvatarPopup.close();
+        })
+        .catch((err) => {
+          editAvatarPopup.close();
+          alertError(err);
+        });
+    },
+    onClose: () => editAvatarValidator.clearWarnings(),
+  },
+  editAvatarPopupSelector
+);
+
 export const imageViewPopup = new PopupWithImage(viewerPopupSelector);
 const profileValidator = new FormValidator(formConfig, editProfileFormSelector);
 const addImageValidator = new FormValidator(formConfig, addImageFormSelector);
+const editAvatarValidator = new FormValidator(
+  formConfig,
+  editAvatarFormSelector
+);
 
 export const deleteConfirmPopup = new ConfirmationPopup(
   confirmationPopupSelector
 );
 
-addImagePopup.setEventListeners();
-editProfilePopup.setEventListeners();
-imageViewPopup.setEventListeners();
-deleteConfirmPopup.setEventListeners();
 addImageBtn.addEventListener("click", () => addImagePopup.open());
 editProfileBtn.addEventListener("click", () => editProfilePopup.open());
+profileAvatarOverlay.addEventListener("click", () => editAvatarPopup.open());
+
+addImagePopup.setEventListeners();
+editProfilePopup.setEventListeners();
+editAvatarPopup.setEventListeners();
+imageViewPopup.setEventListeners();
+deleteConfirmPopup.setEventListeners();
 profileValidator.enableValidation();
 addImageValidator.enableValidation();
+editAvatarValidator.enableValidation();
