@@ -11,6 +11,7 @@ export const token = "56988fc2-c072-4a64-b0a6-6eaae5ae8b3e";
 
 export const formSelector = ".form";
 export const formFieldSelector = ".form__field";
+export const formSubmitSelector = ".form__button-submit";
 
 export const editProfileFormSelector = ".form_type_edit-profile";
 export const editProfilePopupSelector = "#popup-edit-profile";

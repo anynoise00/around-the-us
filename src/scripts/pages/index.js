@@ -81,6 +81,8 @@ const editProfilePopup = new PopupWithForm(
         })
         .catch(alertError);
     },
+    submitDefaultText: "Salvar",
+    submitSendText: "Salvando...",
     onOpen: () => editProfilePopup.setFormValues(userInfo.getUserInfo()),
     onClose: () => profileValidator.clearWarnings(),
   },
@@ -99,6 +101,8 @@ const addImagePopup = new PopupWithForm(
         })
         .catch(alertError);
     },
+    submitDefaultText: "Criar",
+    submitSendText: "Criando...",
     onClose: () => addImageValidator.clearWarnings(),
   },
   addImagePopupSelector
@@ -119,6 +123,8 @@ const editAvatarPopup = new PopupWithForm(
           alertError(err);
         });
     },
+    submitDefaultText: "Salvar",
+    submitSendText: "Salvando...",
     onClose: () => editAvatarValidator.clearWarnings(),
   },
   editAvatarPopupSelector
