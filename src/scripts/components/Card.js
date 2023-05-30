@@ -22,8 +22,11 @@ export default class Card {
     this._name = data.name;
     this._link = data.link;
     this._alt = data.alt;
-    this._likeCount = data.likes.length;
     this._templateSelector = templateSelector;
+
+    this._userLiked = data.likes.some((elem) => elem._id == userId);
+    this._likeCount = data.likes.length;
+
     this._isOwner = data.owner._id == userId;
 
     this._handleCardClick = handleCardClick;
@@ -45,8 +48,13 @@ export default class Card {
     cardImage.src = this._link;
     cardImage.alt = this._alt ?? `Uma imagem da paisagem do ${this._name}`;
 
-    this._element.querySelector(cardLikeCounterSelector).textContent =
-      this._likeCount;
+    this._likeBtnElement = this._element.querySelector(cardLikeBtnSelector);
+
+    if (this._userLiked) {
+      this._likeBtnElement.classList.add(cardBtnLikeActive);
+    }
+
+    this._renderLikes();
 
     return this._element;
   }
@@ -92,13 +100,34 @@ export default class Card {
     return element;
   }
 
-  _toggleLikeButton() {
-    this._element
-      .querySelector(cardLikeBtnSelector)
-      .classList.toggle(cardBtnLikeActive);
-  }
-
   _deleteCard() {
     this._element.remove();
+  }
+
+  _toggleLikeButton() {
+    this._userLiked = !this._userLiked;
+
+    const likePromise = this._userLiked ? this._like() : this._dislike();
+    likePromise
+      .then((res) => {
+        this._likeCount = res.likes.length;
+        this._renderLikes();
+      })
+      .catch(logError);
+  }
+
+  _like() {
+    this._likeBtnElement.classList.add(cardBtnLikeActive);
+    return aroundApi.likeCard(this._id);
+  }
+
+  _dislike() {
+    this._likeBtnElement.classList.remove(cardBtnLikeActive);
+    return aroundApi.dislikeCard(this._id);
+  }
+
+  _renderLikes() {
+    this._element.querySelector(cardLikeCounterSelector).textContent =
+      this._likeCount;
   }
 }
