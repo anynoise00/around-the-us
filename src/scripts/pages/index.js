@@ -20,11 +20,13 @@ import {
   groupId,
   token,
   profileAvatarSelector,
+  confirmationPopupSelector,
 } from "../utils/constants.js";
 import Api from "../components/Api";
-import { addCardToPage } from "../utils/utils";
+import { addCardToPage, logError } from "../utils/utils";
+import ConfirmationPopup from "../components/ConfirmationPopup";
 
-const aroundApi = new Api({
+export const aroundApi = new Api({
   baseUrl: `https://around.nomoreparties.co/v1/${groupId}`,
   headers: {
     authorization: token,
@@ -32,27 +34,37 @@ const aroundApi = new Api({
   },
 });
 
-const userInfo = new UserInfo(
-  profileNameSelector,
-  profileAboutSelector,
-  profileAvatarSelector
-);
+export let userInfo = {};
+export let cardSection = {};
 
-aroundApi.getUserData().then((result) => {
-  userInfo.setUserInfo(result);
-  userInfo.setUserAvatar(result);
-});
-
-export let cardList = null;
 aroundApi
-  .getInitialCards()
+  .getUserData()
   .then((result) => {
-    cardList = new Section(
-      { items: result, renderer: addCardToPage },
-      cardListSelector
+    userInfo = new UserInfo(
+      { data: result },
+      {
+        nameSelector: profileNameSelector,
+        aboutSelector: profileAboutSelector,
+        avatarSelector: profileAvatarSelector,
+      }
     );
+
+    userInfo.setUserInfo(result);
+    userInfo.setUserAvatar(result);
   })
-  .then(() => cardList.renderItems());
+  .then(() => {
+    aroundApi
+      .getInitialCards()
+      .then((result) => {
+        cardSection = new Section(
+          { items: result, renderer: addCardToPage },
+          cardListSelector
+        );
+      })
+      .then(() => cardSection.renderItems())
+      .catch(logError);
+  })
+  .catch(logError);
 
 const editProfilePopup = new PopupWithForm(
   {
@@ -91,9 +103,14 @@ export const imageViewPopup = new PopupWithImage(viewerPopupSelector);
 const profileValidator = new FormValidator(formConfig, editProfileFormSelector);
 const addImageValidator = new FormValidator(formConfig, addImageFormSelector);
 
+export const deleteConfirmPopup = new ConfirmationPopup(
+  confirmationPopupSelector
+);
+
 addImagePopup.setEventListeners();
 editProfilePopup.setEventListeners();
 imageViewPopup.setEventListeners();
+deleteConfirmPopup.setEventListeners();
 addImageBtn.addEventListener("click", () => addImagePopup.open());
 editProfileBtn.addEventListener("click", () => editProfilePopup.open());
 profileValidator.enableValidation();

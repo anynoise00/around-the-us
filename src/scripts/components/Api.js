@@ -39,4 +39,11 @@ export default class Api {
       }),
     }).then(checkResponse);
   }
+
+  deleteCard(cardId) {
+    return fetch(this._baseUrl + `/cards/` + cardId, {
+      method: "DELETE",
+      headers: this._headers,
+    }).then(checkResponse);
+  }
 }

@@ -1,5 +1,5 @@
 import Card from "../components/Card";
-import { cardList, imageViewPopup } from "../pages";
+import { cardSection, imageViewPopup, userInfo } from "../pages";
 import { cardTemplateSelector } from "./constants";
 
 export function addCardToPage(data) {
@@ -9,12 +9,13 @@ export function addCardToPage(data) {
       handleCardClick: (imgData) => {
         imageViewPopup.open(imgData);
       },
+      userId: userInfo.getUserId(),
     },
     cardTemplateSelector
   );
 
   const cardElement = card.generateCard();
-  cardList.addItem(cardElement);
+  cardSection.addItem(cardElement);
 }
 
 export function checkResponse(res) {
@@ -23,4 +24,8 @@ export function checkResponse(res) {
   }
 
   return Promise.reject(`Error: ${res.status}`);
+}
+
+export function logError(err) {
+  console.log(`Error: ${err}`);
 }

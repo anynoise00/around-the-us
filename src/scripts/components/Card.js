@@ -1,6 +1,12 @@
 import {
+  aroundApi,
+  deleteConfirmPopup as confirmDeletionPopup,
+} from "../pages/index.js";
+import {
+  cardBtnDeleteHidden,
   cardBtnLikeActive,
   cardDeleteBtnSelector,
+  cardIdSelector,
   cardImageSelector,
   cardLikeBtnSelector,
   cardLikeCounterSelector,
@@ -8,14 +14,17 @@ import {
   cardTitleSelector,
   cardViewBtnSelector,
 } from "../utils/constants.js";
+import { logError } from "../utils/utils.js";
 
 export default class Card {
-  constructor({ data, handleCardClick }, templateSelector) {
+  constructor({ data, handleCardClick, userId }, templateSelector) {
+    this._id = data._id;
     this._name = data.name;
     this._link = data.link;
     this._alt = data.alt;
     this._likeCount = data.likes.length;
     this._templateSelector = templateSelector;
+    this._isOwner = data.owner._id == userId;
 
     this._handleCardClick = handleCardClick;
   }
@@ -23,6 +32,12 @@ export default class Card {
   generateCard() {
     this._element = this._getTemplate();
     this._setEventListeners();
+
+    if (!this._isOwner) {
+      this._element
+        .querySelector(cardDeleteBtnSelector)
+        .classList.add(cardBtnDeleteHidden);
+    }
 
     this._element.querySelector(cardTitleSelector).textContent = this._name;
 
@@ -43,11 +58,19 @@ export default class Card {
         this._toggleLikeButton();
       });
 
-    this._element
-      .querySelector(cardDeleteBtnSelector)
-      .addEventListener("click", () => {
-        this._deleteCard();
-      });
+    if (this._isOwner) {
+      this._element
+        .querySelector(cardDeleteBtnSelector)
+        .addEventListener("click", () => {
+          confirmDeletionPopup.setConfirmAction(() => {
+            aroundApi.deleteCard(this._id).catch(logError);
+            this._deleteCard();
+            confirmDeletionPopup.close();
+          });
+
+          confirmDeletionPopup.open();
+        });
+    }
 
     this._element
       .querySelector(cardViewBtnSelector)

@@ -9,20 +9,22 @@ export const formConfig = {
 export const groupId = "web_ptbr_04";
 export const token = "56988fc2-c072-4a64-b0a6-6eaae5ae8b3e";
 
-export const cardListSelector = ".cards";
-export const editProfilePopupSelector = "#popup-edit-profile";
+export const formSelector = ".form";
+export const formFieldSelector = ".form__field";
 export const editProfileFormSelector = ".form_type_edit-profile";
+export const editProfilePopupSelector = "#popup-edit-profile";
 export const addImagePopupSelector = "#popup-add-image";
 export const addImageFormSelector = ".form_type_add-image";
 export const viewerPopupSelector = "#popup-image-view";
-export const formSelector = ".form";
-export const formFieldSelector = ".form__field";
 export const profileNameSelector = ".profile__name";
 export const profileAboutSelector = ".profile__description";
 export const profileAvatarSelector = ".profile__avatar";
 export const popupCloseBtnSelector = ".popup__button-close";
 export const popupOverlaySelector = ".popup__overlay";
+export const popupConfirmBtnSelector = ".popup__button-confirm";
 export const popupVisible = "popup_visible";
+
+export const cardListSelector = ".cards";
 export const cardTemplateSelector = "#card-template";
 export const cardSelector = ".card";
 export const cardTitleSelector = ".card__title";
@@ -32,6 +34,8 @@ export const cardLikeCounterSelector = ".card__like-counter";
 export const cardDeleteBtnSelector = ".card__button-delete";
 export const cardViewBtnSelector = ".card__button-view-image";
 export const cardBtnLikeActive = "card__button-like_active";
+export const cardBtnDeleteHidden = "card__button-delete_hidden";
+export const confirmationPopupSelector = "#popup-confirmation";
 
 export const enlargedImage = document.querySelector(".image-popup__image");
 export const enlargedImageTitle = document.querySelector(".image-popup__title");
