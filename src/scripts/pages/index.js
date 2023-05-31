@@ -37,37 +37,35 @@ export const aroundApi = new Api({
   },
 });
 
-export let userInfo = {};
-export let cardSection = {};
+export const userInfo = new UserInfo({
+  nameSelector: profileNameSelector,
+  aboutSelector: profileAboutSelector,
+  avatarSelector: profileAvatarSelector,
+});
+
+export const cardSection = new Section(
+  { items: [], renderer: () => {} },
+  cardListSelector
+);
 
 aroundApi
   .getUserData()
   .then((result) => {
-    userInfo = new UserInfo(
-      { data: result },
-      {
-        nameSelector: profileNameSelector,
-        aboutSelector: profileAboutSelector,
-        avatarSelector: profileAvatarSelector,
-      }
-    );
-
+    console.log(result);
     userInfo.setUserInfo(result);
     userInfo.setUserAvatar(result);
-  })
-  .then(() => {
-    aroundApi
-      .getInitialCards()
-      .then((result) => {
-        cardSection = new Section(
-          { items: result, renderer: addCardToPage },
-          cardListSelector
-        );
-      })
-      .then(() => cardSection.renderItems())
-      .catch(alertError);
+    userInfo.setUserId(result._id);
   })
   .catch(alertError);
+
+aroundApi
+  .getInitialCards()
+  .then((result) => {
+    result.forEach((item) => {
+      addCardToPage(item);
+    });
+  })
+  .catch(alertError).value;
 
 const editProfilePopup = new PopupWithForm(
   {
