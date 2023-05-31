@@ -96,7 +96,7 @@ const addImagePopup = new PopupWithForm(
       aroundApi
         .addCard({ name: values.title, link: values.link })
         .then((result) => {
-          addCardToPage(result);
+          addCardToPage(result, true);
           addImagePopup.close();
         })
         .catch(alertError);
