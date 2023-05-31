@@ -8,14 +8,24 @@ export default class Popup {
   constructor(popupSelector) {
     this._isOpen = false;
     this._element = document.querySelector(popupSelector);
+
+    this._handleEscClose = (ev) => {
+      if (ev.key === "Escape" && this._isOpen) {
+        this.close();
+      }
+    };
   }
 
   open() {
+    document.addEventListener("keydown", this._handleEscClose);
+
     this._isOpen = true;
     this._element.classList.add(popupVisible);
   }
 
   close() {
+    document.removeEventListener("keydown", this._handleEscClose);
+
     this._isOpen = false;
     this._element.classList.remove(popupVisible);
   }
@@ -30,15 +40,5 @@ export default class Popup {
     popupOverlay.addEventListener("click", () => {
       this.close();
     });
-
-    document.addEventListener("keydown", (ev) => {
-      this._handleEscClose(ev);
-    });
-  }
-
-  _handleEscClose(ev) {
-    if (this._isOpen && ev.key === "Escape") {
-      this.close();
-    }
   }
 }
