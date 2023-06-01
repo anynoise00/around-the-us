@@ -51,7 +51,6 @@ export const cardSection = new Section(
 aroundApi
   .getUserData()
   .then((result) => {
-    console.log(result);
     userInfo.setUserInfo(result);
     userInfo.setUserAvatar(result);
     userInfo.setUserId(result._id);
@@ -111,9 +110,10 @@ const editAvatarPopup = new PopupWithForm(
     handleFormSubmit: (ev, values) => {
       ev.preventDefault();
       aroundApi
-        .updateAvatar({ avatar: values.avatar })
-        .then(() => {
-          userInfo.setUserAvatar({ avatar: values.avatar });
+        .updateAvatar({ avatar: values.link })
+        .then((res) => {
+          console.log(res);
+          userInfo.setUserAvatar({ avatar: values.link });
           editAvatarPopup.close();
         })
         .catch((err) => {
