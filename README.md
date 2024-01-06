@@ -6,4 +6,4 @@ Esta página interativa permite que os usuários adicionem, removam e curtam fot
 
 Tecnologias utilizadas: JavaScript, DOM, integração com o servidor, HTML, CSS, web design adaptativo, metodologia BEM, webpack e Figma.
 
-Você pode checar o estado atual do projeto neste [link](https://anynoise00.github.io/web_project_4_ptbr/).
+Você pode checar o estado atual do projeto neste [link](https://anynoise00.github.io/around-the-us/).
