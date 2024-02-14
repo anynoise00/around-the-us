@@ -1,9 +1,30 @@
-# EUA Afora
+# Around the US
 
-Uma página interativa onde os usuários podem adicionar, remover e curtir fotos.
+![Front page image](./assets/img/frontpage.png)  
+[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/anynoise00/around-the-us/blob/main/LICENSE)
 
-Esta página interativa permite que os usuários adicionem, removam e curtam fotos, além de poder atualizar suas informações de perfil. Ela foi criada para praticar a utilização de módulos e classes JavaScript, validação de formulários, a integração da página com um servidor e a utilização do webpack para criar um pacote de arquivos e acelerar o carregamento da página. Sua conclusão levou cerca de dois meses.
+## About
 
-Tecnologias utilizadas: JavaScript, DOM, integração com o servidor, HTML, CSS, web design adaptativo, metodologia BEM, webpack e Figma.
+A single page application where users can post photos and like photos uploaded by other users.
 
-Você pode checar o estado atual do projeto neste [link](https://anynoise00.github.io/around-the-us/).
+This was a project made for TripleTen's online web development bootcamp.
+It was made to practice using javascript classes and modules, form validation, and the integration of the webpage with a server.
+
+### Click [here](https://anynoise00.github.io/around-the-us/) to visit the website.
+
+## Mobile layout
+
+<img src="./assets/img/mobile-1.jpg" width="300" alt="Mobile image 1"> <img src="./assets/img/mobile-2.jpg" width="300" alt="Mobile image 2">
+
+## Technologies
+
+The following tools where used for building this project:
+
+- HTML, CSS & JavaScript
+- BEM methodology
+- Webpack
+
+## Credits
+
+This projects uses [TripleTen](https://tripleten.com/)'s figma template  
+[![Figma Badge](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)](https://www.figma.com/file/HyMToCsnGeUL35awWZJHz6/WEB.-Sprint-4.-Around-The-U.S.-desktop-%2B-mobile-pt-(Copy)?type=design&node-id=0-1&mode=design&t=ClOh3EiGpuWKWXEn-0)
